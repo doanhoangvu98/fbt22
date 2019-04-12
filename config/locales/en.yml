@@ -22,3 +22,6 @@ en:
       error:
         one: "%{count} error"
         other: "%{count} errors"
+  layouts:
+    application:
+      title: " | Sun Booking Tours"

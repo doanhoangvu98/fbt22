@@ -9,7 +9,6 @@ class CreateTours < ActiveRecord::Migration[5.1]
       t.datetime :tour_start
       t.datetime :tour_finish
       t.integer :status, default: 0
-
       t.timestamps
     end
   end

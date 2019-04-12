@@ -21,10 +21,9 @@
 /yarn-error.log
 
 .byebug_history
-<<<<<<< HEAD
-=======
-
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
->>>>>>> 672173b14157d43fd8e4160b633cf4f01cfd15bf
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
