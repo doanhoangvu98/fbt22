@@ -1,6 +1,13 @@
 <%= form_for(@user) do |f| %>
 	<%= render "shared/error_messages", object: f.object %>
-  
+
+  <div>
+    <%= image_tag check_none_image(@user),
+      size: Settings.app.user.avatar_size, id: "avatar" %>
+    <span class="picture">
+      <%= f.file_field :picture, accept: Settings.app.user.image_accept %>
+    </span>
+  </div>
 	<%= f.label :firstname, t(".firstname") %>
 	<%= f.text_field :firstname, class: "form-control" %>
 
@@ -24,3 +31,5 @@
 
 	<%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
+
+<%= javascript_include_tag "user_form" %>
