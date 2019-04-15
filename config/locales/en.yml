@@ -3,11 +3,18 @@ en:
     action:
       user_not_found: "User not found"
       maximum_size_err: Maximum file size is 5MB. Please choose a smaller file.
+      please_login: Please log in.
     new:
       title: "Sign up"
       button_create: "Create my account"
     create:
       signup_success: "Sign up success"
+    edit:
+      title: Edit user
+      update_profile: Update your profile
+      save_change: Save changes
+    update:
+      profile_updated: Profile updated
     form:
       firstname: "First Name"
       lastname: "Last Name"
@@ -16,6 +23,16 @@ en:
       email: "Email"
       password: "Password"
       confirm: "Confirmation"
+    user:
+      delete: delete
+      you_sure: You sure?
+    destroy:
+      user_deleted: User deleted
+      user_delete_error: User delete error
+    show:
+      log_out: Log out
+      setting: Setting
+      user: User
   shared:
     error_messages:
       form_contains: "The form contains"

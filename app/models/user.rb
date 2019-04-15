@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
+  enum role: {admin: 1}
+  scope :sort_by_created_at_desc, ->{order created_at: :desc}
   has_many :reviews, dependent: :destroy
   has_many :banks, dependent: :destroy
   has_many :bookings, dependent: :destroy
@@ -18,7 +20,7 @@ class User < ApplicationRecord
     uniqueness: {case_sensitive: false}
   has_secure_password
   validates :password, presence: true,
-    length: {minimum: Settings.app.user.pass_min_length}
+    length: {minimum: Settings.app.user.pass_min_length}, allow_nil: true
   validate :picture_size
 
   class << self
