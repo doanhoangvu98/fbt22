@@ -8,3 +8,4 @@ app:
     image_accept: "image/jpeg,image/gif,image/png"
     none_avatar: "none-avatar.jpg"
     avatar_size: "100x100"
+    yes_remmeber: "1"
