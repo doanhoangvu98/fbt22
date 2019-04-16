@@ -1,0 +1,10 @@
+app:
+  user:
+    first_name_max_length: 20
+    last_name_max_length: 10
+    email_max_length: 80
+    pass_min_length: 6
+    image_size_mb: 5
+    image_accept: "image/jpeg,image/gif,image/png"
+    none_avatar: "none-avatar.jpg"
+    avatar_size: "100x100"
