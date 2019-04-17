@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  price: 1
+  image: MyString
+  num_people: 1
+  tour_start: 2019-04-13 12:23:01
+  tour_finish: 2019-04-13 12:23:01
+  status: 1
+
+two:
+  title: MyString
+  description: MyText
+  price: 1
+  image: MyString
+  num_people: 1
+  tour_start: 2019-04-13 12:23:01
+  tour_finish: 2019-04-13 12:23:01
+  status: 1
