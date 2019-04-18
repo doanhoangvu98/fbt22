@@ -133,6 +133,31 @@ en:
         you_sure: You sure
       form:
         goto: "goto"
+    tours:
+      action:
+        tour_not_found: Tour not found
+      new:
+        title: Add tour
+        button_create: Add tour
+        description: Description
+      form:
+        title: Title
+        description: Description
+      create:
+        add_tour_success: Add tour success
+      index:
+        title: Tours
+        search_tours: Search name
+      tour:
+        you_sure: You sure
+      destroy:
+        tour_deleted: Tour deleted
+        tour_delete_error: Tour delete error
+      update:
+        tour_updated: Tour updated
+      edit:
+        save_change: Save change
+        title: Edit tour
     index:
       home:
         title: Admin home
@@ -174,6 +199,9 @@ en:
   travelling:
     action:
       travelling_not_found: Travelling not found
+  tours:
+    action:
+      tour_not_found: Tour not found
   number:
     currency:
       format:

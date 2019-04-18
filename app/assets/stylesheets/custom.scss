@@ -5,6 +5,7 @@ $color-price: #eda84a;
 $color-price-span: #929191;
 $color-text: #929191;
 $color-link-a: #2d2c2c;
+$color-gray-background: #f7f7eb;
 
 footer{
   padding-top: 50px;
@@ -147,4 +148,14 @@ footer{
   width: 100%;
   margin-top: 45px;
   @include box_sizing;
+}
+
+.admin_layout {
+  margin: 0 100px;
+  border-radius: 15px;
+  background: $color-gray-background;
+}
+
+.btn-custom {
+  margin-bottom: 13px;
 }

@@ -11,9 +11,14 @@ Rails.application.routes.draw do
     get "/contact", to: "static_pages#contact"
     namespace :admin do
       root "index#home"
-      resources :categories, only: %i(new create show)
+      resources :categories, only: %i(new create)
       resources :locations
-      resources :travellings      
+      resources :travellings
+      resources :tours do
+        member do
+          patch :status
+        end
+      end
     end
     resources :users
     resources :tours, only: %i(show index)
