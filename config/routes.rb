@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       resources :travellings
       resources :tours do
         member do
-          patch :status
+          patch :change_status
         end
       end
     end

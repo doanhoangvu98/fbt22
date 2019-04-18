@@ -1,8 +1,8 @@
 class Admin::ToursController < ApplicationController
   before_action :admin_user
-  before_action :load_tour, except: %i(create new)
-  before_action :load_categories, except: %i(destroy status)
-  before_action :load_travellings, except: %i(destroy status)
+  before_action :load_tour, except: %i(create new index)
+  before_action :load_categories, except: %i(index destroy status)
+  before_action :load_travellings, except: %i(index destroy status)
 
   def new
     @tour = Tour.new
@@ -16,6 +16,11 @@ class Admin::ToursController < ApplicationController
     else
       render :new
     end
+  end
+
+  def index
+    @tours = Tour.search(params[:term]).order_by_create
+      .paginate page: params[:page], per_page: Settings.app.user.per_page
   end
 
   def edit; end
@@ -36,6 +41,13 @@ class Admin::ToursController < ApplicationController
       flash[:danger] = t ".tour_delete_error"
     end
     redirect_to admin_tours_path
+  end
+
+  def change_status
+    @tour.close? ? @tour.open! : @tour.close!
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
