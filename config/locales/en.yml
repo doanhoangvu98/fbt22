@@ -78,7 +78,49 @@ en:
       create:
         add_category_success: Add category success
       update:
-        category_updated: Category updated 
+        category_updated: Category updated
   categories:
     action:
       category_not_found: Category not found
+  layouts:
+    application:
+      title: " | Sun Booking Tours"
+    header:
+      title: "Sun Booking"
+      home: "Home"
+      tour: "Tours"
+      about: "About"
+      contact: "Contact"
+      signin: "Sign in"
+    footer:
+      p1: "2019 Company, Inc."
+  static_pages:
+    home:
+      title: "Home"
+      brand: "Welcome to Sun Booking"
+      signup: "Sign up"
+      name: "Tour name"
+      price: "2.990.000"
+      days: "3 days 2 night"
+      description: "description....."
+      readmore: "Read more"
+    contact:
+      title: "Contact"
+      p1: "Contact us"
+    about:
+      title: "About"
+      p1: "Information about us"
+  tours:
+    index:
+      title: "List Tours"
+      signup: "Sign up"
+      brand: "Sun Booking"
+      introduction: "Introduction bla bla"
+      name: "Tour Name"
+      price: "1.990.000"
+      days: "2 day"
+      description: "description about tour"
+      book: "Book"
+      review_content: "very good"
+      review_count: "99 reviews"
+      rating: "8.0"
