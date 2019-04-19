@@ -35,3 +35,16 @@ en:
       remember_me: Remember me on this computer
     create:
       invalid_email_pass: Invalid email/password combination
+  layouts:
+    application:
+      title: " | Sun Booking Tours"
+  static_pages:
+    home:
+      title: "Home"
+      p1: "This is the home page for the Booking Tours."
+    contact:
+      title: "Contact"
+      p1: "Contact us"
+    about:
+      title: "About"
+      p1: "Information about us"
