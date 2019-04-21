@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190417092743) do
+ActiveRecord::Schema.define(version: 20190420150746) do
 
   create_table "banks", force: :cascade do |t|
     t.string "bank_name"
@@ -68,6 +68,12 @@ ActiveRecord::Schema.define(version: 20190417092743) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "payments", force: :cascade do |t|
     t.string "payment_amount"
     t.integer "bank_id"
@@ -101,6 +107,15 @@ ActiveRecord::Schema.define(version: 20190417092743) do
     t.datetime "updated_at", null: false
     t.integer "category_id"
     t.index ["category_id"], name: "index_tours_on_category_id"
+  end
+
+  create_table "travellings", force: :cascade do |t|
+    t.integer "location_start_id"
+    t.integer "location_end_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["location_end_id"], name: "index_travellings_on_location_end_id"
+    t.index ["location_start_id"], name: "index_travellings_on_location_start_id"
   end
 
   create_table "users", force: :cascade do |t|

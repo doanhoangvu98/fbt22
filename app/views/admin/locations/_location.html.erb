@@ -1,0 +1,11 @@
+<tr>
+  <td></td>
+  <td><%= location.name %></td>
+  <td>
+    <%= link_to t(".edit"), edit_admin_location_path(location) %>
+  </td>
+  <td>
+    <%= link_to t(".delete"), admin_location_path(location), method: :delete,
+      data: { confirm: t(".you_sure") } %>
+  </td>
+</tr>
