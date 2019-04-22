@@ -65,3 +65,20 @@ en:
     about:
       title: "About"
       p1: "Information about us"
+  admin:
+    categories:
+      form:
+        name: Name
+      new:
+        title: Add category
+        button_create: Add category
+      edit:
+        title: Update category
+        save_change: Save change category
+      create:
+        add_category_success: Add category success
+      update:
+        category_updated: Category updated 
+  categories:
+    action:
+      category_not_found: Category not found
