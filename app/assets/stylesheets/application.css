@@ -12,5 +12,6 @@
  *
  *= require users
  *= require custom
+ *= require tours
  *= require_self
  */

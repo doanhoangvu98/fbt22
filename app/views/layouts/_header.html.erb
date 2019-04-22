@@ -1,0 +1,13 @@
+<header>
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4
+    mb-3 bg-white order-bottom box-shadow">
+    <h5 class="my-0 mr-md-auto font-weight-bold"><%= t(".title") %></h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <%= link_to t(".home"), root_path, class: "p-2 text-dark" %>
+      <%= link_to t(".tour"), tours_path, class: "p-2 text-dark" %>
+      <%= link_to t(".about"), about_path, class: "p-2 text-dark" %>
+      <%= link_to t(".contact"), contact_path, class: "p-2 text-dark" %>
+      <%= link_to t(".signin"), "#", class: "btn btn-outline-primary" %>
+    </nav>
+    </div>
+</header>
