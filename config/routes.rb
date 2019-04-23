@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       root "index#home"
       resources :categories, only: %i(new create show)
       resources :locations
+      resources :travellings      
     end
     resources :users
     resources :tours, only: %i(show index)

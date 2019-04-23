@@ -1,0 +1,13 @@
+<%= form_for [:admin, @travelling], html: {class: "form-inline inline-box"} do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="form-group">
+    <%= f.select :location_start_id, @locations, {selected: @locations.first},
+      { class: "form-control"} %>
+  </div>
+  <h4><%= t(".goto") %></h4>
+  <div class="form-group">
+    <%= f.select :location_end_id, @locations, {selected: @locations.second},
+      {class: "form-control"} %>
+  </div>
+  <%= f.submit yield(:button_text), class: "btn btn-primary mb-2" %>
+<% end %>

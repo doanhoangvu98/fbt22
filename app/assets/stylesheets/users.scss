@@ -71,6 +71,12 @@ span.picture {
 
 .inline-box {
   display: -webkit-box;
+  .form-group {
+    margin: 0 10px;
+  }
+  input {
+    margin-left: 15px;
+  }
 }
 
 tr td:first-child:before {

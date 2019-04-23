@@ -1,0 +1,12 @@
+<tr>
+  <td></td>
+  <td><%= travelling.location_start.name %></td>
+  <td><%= travelling.location_end.name %></td>
+  <td>
+    <%= link_to t(".edit"), edit_admin_travelling_path(travelling) %>
+  </td>
+  <td>
+    <%= link_to t(".delete"), admin_travelling_path(travelling), method: :delete,
+      data: { confirm: t(".you_sure") } %>
+  </td>
+</tr>
