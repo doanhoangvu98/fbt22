@@ -3,7 +3,7 @@ $color-offer-a: #FFFFFF;
 $color-price: #eda84a;
 $color-price-span: #929191;
 $color-text: #929191;
-$color-book-button: #31124b;
+$color-blackcurrant: #31124b;
 $color-review-title: #2d2c2c;
 $color-review-subtitle: #929191;
 $color-review-rating: #FFFFFF;
@@ -113,9 +113,20 @@ $color-review-rating-bg: #fa9e1b;
     overflow: hidden;
     z-index: 1;
 }
+.readmore_button
+{
+  background: $color-blackcurrant;
+  margin-top: 39px;
+  margin-bottom: -5px;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
 .book_button
 {
-  background: $color-book-button;
+  background: $color-blackcurrant;
   margin-top: 39px;
   margin-bottom: -5px;
   -webkit-transition: all 200ms ease;
@@ -136,7 +147,7 @@ $color-review-rating-bg: #fa9e1b;
     white-space: nowrap;
     z-index: 2;
 }
-.book_button:hover
+.readmore_button:hover
 {
   opacity: 0.8;
 }
@@ -188,4 +199,8 @@ a, a:hover, a:visited, a:active, a:link {
     -webkit-font-smoothing: antialiased;
     text-shadow: rgba(0, 0, 0, 0.01) 0px 0px 1px;
     text-decoration: none;
+}
+
+.card-inner{
+    margin-left: 4rem;
 }

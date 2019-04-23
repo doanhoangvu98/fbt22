@@ -174,6 +174,14 @@ en:
       signin: "Sign in"
     footer:
       p1: "2019 Company, Inc."
+  reviews:
+    review:
+      ago: "%{time} ago"
+    form:
+      type_review: "Type review"
+      rating: "Rating"
+      input: "Enter your review ... "
+      submit: "Review"
   tours:
     index:
       title: "List Tours"
@@ -191,6 +199,22 @@ en:
       review_content: "very good"
       review_count: "99 reviews"
       rating: "8.0"
+    show:
+      danger: "Content not exist"
+      title: "Tour details"
+      signup: "Sign up"
+      brand: "Sun Booking"
+      start: "Start: "
+      finish: "Finish: "
+      people: "People: "
+      ago: " ago"
+      reply: " Reply"
+      like: " Like"
+      review: "Reviews (%{count})"
+      comment: "You must login to comment"
+      booking: "Book"
+    action:
+      tour_not_found: Tour not found
   categories:
     action:
       category_not_found: Category not found
@@ -200,9 +224,6 @@ en:
   travelling:
     action:
       travelling_not_found: Travelling not found
-  tours:
-    action:
-      tour_not_found: Tour not found
   number:
     currency:
       format:
@@ -223,3 +244,12 @@ en:
       booking_fail: Booking fail
     form:
       booking: Booking
+  controllers:
+    reviews:
+      create:
+        success: "Review was successfully created."
+        danger: "Error"
+      load:
+        danger: "Not found"
+      load:
+        danger: "Not found"

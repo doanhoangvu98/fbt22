@@ -15,6 +15,7 @@ app:
     yes_remmeber: "1"
     per_page: 10
     admin: 1
+    avatar_size_review: "100x100"
   category:
     name_max_length: 100
   page: 10
@@ -31,3 +32,5 @@ app:
   booking:
     min_number: 1
     value: 1
+  review:
+    length: 400

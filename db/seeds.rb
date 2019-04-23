@@ -7,7 +7,17 @@ User.create!(firstname: "Le Van",
   password: "123456",
   password_confirmation: "123456")
 
-60.times do |n|
+User.create!(firstname: "Doan Hoang",
+  lastname: "Vu",
+  address: "Su pham",
+  phone: "0328944440",
+  email: "doanhuuanh4@gmail.com",
+  role: 1,
+  password: "123456",
+  password_confirmation: "123456")
+
+
+30.times do |n|
   firstname = "Le-#{n+1}"
   lastname = "Huynh-#{n+1}"
   address = "59 Nguyen Luong Bang"
@@ -32,12 +42,12 @@ Location.create!(name: "Da Nang")
 Travelling.create!(location_start_id: 1, location_end_id: 2)
 
 30.times do |n|
-  title  = Faker::Name.title,
-  description = Faker::Lorem.paragraphs(2..8),
-  price = "2990000",
-  image = Faker::LoremPixel.image("255x267"),
-  num_people = Random.rand(10),
-  tour_start = Date.today,
+  title  = Faker::Name.title
+  description = Faker::Lorem.paragraphs(2..8)
+  price = "299"
+  image = Faker::LoremPixel.image("255x267")
+  num_people = Random.rand(10)
+  tour_start = Date.today
   tour_finish =  Date.parse("2019-05-02")
   status = 0
   category_id = 1
@@ -52,4 +62,17 @@ Travelling.create!(location_start_id: 1, location_end_id: 2)
     status: status,
     category_id: category_id,
     travelling_id: travelling_id)
+end
+
+100.times do |n|
+  type_review = Random.rand(0..2)
+  rating = Random.rand(1..5)
+  content = Faker::Lorem.paragraphs(1)
+  user_id = Random.rand(1..31)
+  tour_id = Random.rand(1..30)
+  Review.create!(type_review: type_review,
+    rating: rating,
+    content: content,
+    user_id: user_id,
+    tour_id: tour_id)
 end
