@@ -195,6 +195,9 @@ en:
       sure: "Are you sure?"
       edit: "Edit"
       comment: "Comments (%{count})"
+      countlike: "Like (%{count})"
+      like: "Like"
+      unlike: "Unlike"
     form:
       type_review: "Type review"
       rating: "Rating"
@@ -283,3 +286,12 @@ en:
         danger: "Can't delete"
       set:
         not_found: "Not found"
+    likes:
+      create:
+        success: "Liked success!"
+        danger: "You can't like more than once"
+      destroy:
+        success: "Unliked success!"
+        danger: "Can't unlike"
+      load:
+        danger: "Not found"

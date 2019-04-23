@@ -18,4 +18,8 @@ module UsersHelper
   def load_reply_comment reply_id
     Comment.load_reply_comment reply_id
   end
+
+  def check_liked review
+    review.likes.liked(current_user.id, review.id)
+  end
 end
