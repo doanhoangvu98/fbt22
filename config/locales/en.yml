@@ -79,6 +79,35 @@ en:
         add_category_success: Add category success
       update:
         category_updated: Category updated
+    locations:
+      create:
+        add_location_success: Add location success
+        add_location_error: Add location error
+      update:
+        update_location_success: Update location success
+        update_location_error: Update location error
+      destroy:
+        delete_location_success: Delete location success
+        delete_location_error: Delete location error
+      index:
+        title: Locations
+        button_create: Create location
+        sno: Sr.No
+        name: Name
+        edit: Edit
+        delete: Delete
+      form:
+        name: Name
+      location:
+        edit: Edit
+        delete: Delete
+        you_sure: You sure
+      edit:
+        title: Update your location
+        save_change: Save changes
+    index:
+      home:
+        title: Admin home
   categories:
     action:
       category_not_found: Category not found
@@ -124,3 +153,9 @@ en:
       review_content: "very good"
       review_count: "99 reviews"
       rating: "8.0"
+  categories:
+    action:
+      category_not_found: Category not found
+  location:
+    action:
+      location_not_found: Location not found

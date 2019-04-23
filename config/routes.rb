@@ -10,8 +10,9 @@ Rails.application.routes.draw do
     get "/about", to: "static_pages#about"
     get "/contact", to: "static_pages#contact"
     namespace :admin do
-      root "categories#new"
+      root "index#home"
       resources :categories, only: %i(new create show)
+      resources :locations
     end
     resources :users
     resources :tours, only: %i(show index)

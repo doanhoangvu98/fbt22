@@ -1,0 +1,20 @@
+<% provide(:title, t(".title")) %>
+<h1><%= t(".title") %></h1>
+<% provide(:button_text, t(".button_create")) %>
+<div>
+  <%= render "form" %>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t ".sno" %></th>
+      <th><%= t ".name" %></th>
+      <th><%= t ".edit" %></th>
+      <th><%= t ".delete" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @locations %>
+  </tbody>
+</table>
+<%= will_paginate %>
