@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:destroy]
+  before_action :set_comment, only: :destroy
 
   def create
-    @comment = Comment.create! comment_params
+    @comment = Comment.create comment_params
     respond_to do |format|
       format.html{redirect_to :back}
       format.js
