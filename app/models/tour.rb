@@ -16,7 +16,6 @@ class Tour < ApplicationRecord
   validates :description, presence: true
   validates :price, presence: true
   validates :num_people, presence: true
-  validates :image, presence: true
   validate :image_size
 
   def self.search term

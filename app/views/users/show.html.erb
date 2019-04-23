@@ -1,6 +1,1 @@
 <%= @user.lastname %>, <%= @user.email %>
-<% if logged_in? %>
-  <%= link_to t(".log_out"), logout_path, method: :delete %>
-  <%= link_to t(".setting"), edit_user_path(current_user) %>
-  <%= link_to t(".user"), users_path %>
-<% end %>
