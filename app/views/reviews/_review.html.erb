@@ -12,36 +12,43 @@
         <a class="float-left" href="">
           <strong><%= review.user.full_name %></strong>
         </a>
-        <div class="star-rating float-right"><%= review.rating %></div>
+        <div class="review-rating float-right ml-2" data-score="<%= review.rating %>"></div>
+        <div class="float-right"><%= review.type_review %></div>
       </p>
       <div class="clearfix"></div>
       <p><%= review.content %></p>
       <p>
-        <a class="float-right btn btn-outline-primary ml-2">
-          <i class="fa fa-reply"></i><%= t ".reply" %>
-        </a>
-        <a class="float-right btn text-white btn-info ml-2">
-          <i class="fa fa-heart"></i><%= t ".like" %>
-          <span class="glyphicon glyphicon-star">
-        </a>
-        <% if current_user?(review.user) %>
-          <%= link_to t(".delete"), [review.tour, review], method: :delete,
-            data: { confirm: t(".sure") }, :class => "float-right btn
-            text-white btn-danger ml-2" %>
-          <%= link_to t(".edit"), edit_tour_review_path(@tour, review),
-            class: "float-right btn text-white btn-success" %>
+        <p><%= t(".countlike", count: review.likes.count) %></p>
+        <% if logged_in? %>
+          <% if check_liked review %>
+            <%= link_to t(".unlike"), review_like_path(review, check_liked(review)),
+              method: :delete, class: "float-left btn text-white btn-info ml-2" %>
+          <% else %>
+            <%= link_to t(".like"), review_likes_path(review), method: :post,
+              class: "float-left btn text-white btn-info ml-2" %>
+          <% end %>
+          <% if current_user?(review.user) %>
+            <%= link_to t(".delete"), review_path(review),
+              method: :delete, data: { confirm: t(".sure") }, class: "float-right
+              btn text-white btn-danger ml-2" %>
+            <%= link_to t(".edit"), edit_tour_review_path(@tour, review),
+              class: "float-right btn text-white btn-success ml-2" %>
+          <% end %>
+          <br><br>
+          <div id = "comment_review_<%= review.id %>">
+            <%= render load_comment_review review %>
+          </div>
+          <div id = "comment_form_<%= review.id %>">
+            <%= render "comments/form", review: review %>
+          <div>
         <% end %>
+        <h6 id="count_comment_<%= review.id %>">
+          <%= t(".comment", count: review.comments.count) %>
+        </h6>
       </p>
-      <h3 id="count_comment_<%= review.id %>">
-        <%= t(".comment", count: review.comments.count) %>
-      </h3>
-      <div id = "comment_review_<%= review.id %>">
-        <%= render load_comment_review review %>
-      </div>
-      <div id = "comment_form_<%= review.id %>">
-        <%= render "comments/form", review: review %>
-      <div>
     </div>
   </div>
   <hr>
 </div>
+
+<%= javascript_include_tag("review") %>

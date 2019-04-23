@@ -8,7 +8,7 @@ gem "config"
 gem "faker", "1.7.3"
 gem "i18n-js"
 gem "jbuilder", "2.7.0"
-gem "jquery-rails", "4.3.1"
+gem "jquery-rails"
 gem "mini_magick", "4.7.0"
 gem "puma", "3.9.1"
 gem "rails", "5.1.6"
@@ -41,7 +41,7 @@ end
 
 group :production do
   gem "fog", "1.42"
-  # gem "pg", "0.20.0"
+  gem "pg", "0.20.0"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

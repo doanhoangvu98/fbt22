@@ -31,5 +31,18 @@ Rails.application.routes.draw do
         end
       end
     end
+    resources :users
+    resources :tours, only: %i(show index)
+    resources :bookings, only: %i(new create index) do
+      member do
+        patch :change_status
+      end
+    end
+    resources :tours do
+      resources :reviews, only: %i(show)
+    end
+    resources :reviews do
+      resources :likes, only: %i(new create show destroy)
+    end
   end
 end
