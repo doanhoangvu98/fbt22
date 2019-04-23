@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :load_review, expect: %i(show edit update destroy)
+  before_action :load_review, only: %i(edit update destroy)
 
   def new
     @review = Review.new
@@ -17,13 +17,30 @@ class ReviewsController < ApplicationController
     redirect_to @review.tour
   end
 
+  def update
+    if @review.update_attributes review_params
+      flash[:success] = t "controllers.reviews.destroy.success"
+    else
+      flash[:danger] = t "controllers.reviews.destroy.danger"
+    end
+    redirect_to @review.tour
+  end
+
+  def destroy
+    if @review.destroy
+      flash[:success] = t "controllers.reviews.destroy.success"
+    else
+      flash[:danger] = t "controllers.reviews.destroy.danger"
+    end
+    redirect_to @review.tour
+  end
+
   private
 
   def load_review
     @review = Review.find_by id: params[:id]
     return if @review
     flash[:danger] = t "controllers.reviews.load.danger"
-    redirect_to root_path
   end
 
   def review_params

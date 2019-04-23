@@ -30,6 +30,6 @@ Rails.application.routes.draw do
     resources :tours do
       resources :reviews
     end
-    resources :reviews, only: %i(new create destroy)
+    resources :reviews, only: %i(new create destroy edit update)
   end
 end

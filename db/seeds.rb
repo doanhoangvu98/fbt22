@@ -23,12 +23,14 @@ User.create!(firstname: "Doan Hoang",
   address = "59 Nguyen Luong Bang"
   phone = "0977469596"
   email = "huynhle-#{n+1}@gmail.com"
+  picture = Faker::Avatar.image
   password = "123456"
   User.create!(firstname: firstname,
     lastname: lastname,
     address: address,
     phone: phone,
     email: email,
+    picture: picture,
     password: password,
     password_confirmation: password)
 end
@@ -65,13 +67,11 @@ Travelling.create!(location_start_id: 1, location_end_id: 2)
 end
 
 100.times do |n|
-  type_review = Random.rand(0..2)
   rating = Random.rand(1..5)
   content = Faker::Lorem.paragraphs(1)
   user_id = Random.rand(1..31)
   tour_id = Random.rand(1..30)
-  Review.create!(type_review: type_review,
-    rating: rating,
+  Review.create!(rating: rating,
     content: content,
     user_id: user_id,
     tour_id: tour_id)
