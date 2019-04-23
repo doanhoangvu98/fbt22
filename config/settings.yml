@@ -1,17 +1,22 @@
 app:
-  user:
-    first_name_max_length: 20
-    last_name_max_length: 10
-    email_max_length: 80
-    pass_min_length: 6
-    image_size_mb: 5
-    image_accept: "image/jpeg,image/gif,image/png"
-    none_avatar: "none-avatar.jpg"
-    avatar_size: "100x100"
-    yes_remmeber: "1"
-    avatar_size_list: "50x50"
-    yes_remmeber: "1"
-    per_page: 10
-    admin: 1
-  category:
-    name_max_length: 100
+    user:
+        first_name_max_length: 20
+        last_name_max_length: 10
+        email_max_length: 80
+        pass_min_length: 6
+        image_size_mb: 5
+        image_accept: "image/jpeg,image/gif,image/png"
+        none_avatar: "none-avatar.jpg"
+        avatar_size: "100x100"
+        yes_remmeber: "1"
+        avatar_size_list: "50x50"
+        yes_remmeber: "1"
+        per_page: 10
+        admin: 1
+    category:
+        name_max_length: 100
+    page: 10
+    tour:
+        length: 250
+    tour_sp:
+        length: 100

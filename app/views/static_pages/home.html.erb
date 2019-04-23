@@ -11,46 +11,8 @@
   </div>
   <div class="container">
     <div class="row offers_items">
-      <!-- Offers Item -->
-      <div class="col-lg-6 offers_col">
-        <div class="offers_item">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="offers_image_container">
-                <div class="offers_image_background" style=""></div>
-                <div class="offer_name"><a href="#"><%= t(".name") %></a></div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="offers_content">
-                <div class="offers_price"><%= t(".price") %>
-                  <span><%= t(".days") %></span>
-                </div>
-                <div class="rating_r rating_r_4 offers_rating">
-                  <i></i>
-                  <i></i>
-                  <i></i>
-                  <i></i>
-                  <i></i>
-                </div>
-                <p class="offers_text"><%= t(".description") %></p>
-                <div class="offers_icons">
-                  <!-- vihicle -->
-                  <ul class="offers_icons_list">
-                    <li class="offers_icons_item"><img src="" alt=""></li>
-                    <li class="offers_icons_item"><img src="" alt=""></li>
-                    <li class="offers_icons_item"><img src="" alt=""></li>
-                    <li class="offers_icons_item"><img src="" alt=""></li>
-                  </ul>
-                </div>
-                <div class="offers_link">
-                  <a href=""><%= t(".readmore") %></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <%= render partial: "static_pages/tour", collection: @tours %>
+      <%= will_paginate @tours %>
     </div>
   </div>
 </main>
