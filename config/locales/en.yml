@@ -105,6 +105,33 @@ en:
       edit:
         title: Update your location
         save_change: Save changes
+    travellings:
+      edit:
+        title: Update your travelling
+        save_change: Save changes
+      create:
+        add_travelling_success: Add travelling success
+        add_travelling_error: Add travelling error
+      update:
+        update_travelling_success: Update travelling success
+        update_travelling_error: Update travelling error
+      destroy:
+        delete_travelling_success: Delete travelling success
+        delete_travelling_error: Delete travelling error
+      index:
+        title: Travellings
+        button_create: Create travelling
+        sno: Sr.No
+        start: Start Location
+        end: End Location
+        edit: Edit
+        delete: Delete
+      travelling:
+        edit: Edit
+        delete: Delete
+        you_sure: You sure
+      form:
+        goto: "goto"
     index:
       home:
         title: Admin home
@@ -159,3 +186,6 @@ en:
   location:
     action:
       location_not_found: Location not found
+  travelling:
+    action:
+      travelling_not_found: Travelling not found
