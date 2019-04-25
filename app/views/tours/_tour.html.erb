@@ -1,0 +1,62 @@
+<div class="offers_item rating_3">
+  <div class="row">
+    <div class="col-lg-1 temp_col"></div>
+    <div class="col-lg-3 col-1680-4">
+      <div class="offers_image_container">
+        <div class="offers_image_background"
+          style="background-image:url(<%= tour.image %>)">
+        </div>
+        <div class="offer_name"><a href=""><%= tour.title %></a></div>
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <div class="offers_content">
+        <div class="offers_price"><%= number_to_currency(tour.price) %>
+          <br>
+          <span>
+            <%= t ".start" %><%= l tour.tour_start, format: :long %>
+          </span>
+          <br>
+          <span>
+            <%= t ".finish" %><%= l tour.tour_finish, format: :long %>
+          </span>
+        </div>
+        <div class="rating_r rating_r_3 offers_rating"
+          data-rating="3">
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+        </div>
+        <p class="offers_text">
+          <%= truncate(tour.description,
+            :length => Settings.app.tour.length) %>
+        </p>
+        <div class="offers_icons">
+          <ul class="offers_icons_list">
+             <li class="offers_icons_item"><img src="" alt=""></li>
+            <li class="offers_icons_item"><img src="" alt=""></li>
+            <li class="offers_icons_item"><img src="" alt=""></li>
+            <li class="offers_icons_item"><img src="" alt=""></li>
+          </ul>
+        </div>
+        <div class="button book_button">
+          <a href="#"><%= t(".book") %></a>
+        </div>
+        <div class="offer_reviews">
+          <div class="offer_reviews_content">
+            <div class="offer_reviews_title">
+              <%= t(".review_content") %>
+            </div>
+            <div class="offer_reviews_subtitle">
+              <%= t(".review_count") %>
+            </div>
+          </div>
+          <div class="offer_reviews_rating text-center">
+            <%= t(".rating") %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

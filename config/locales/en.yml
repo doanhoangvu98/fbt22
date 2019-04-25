@@ -52,13 +52,14 @@ en:
       remember_me: Remember me on this computer
     create:
       invalid_email_pass: Invalid email/password combination
-  layouts:
-    application:
-      title: " | Sun Booking Tours"
   static_pages:
     home:
       title: "Home"
+      brand: "Welcome to Sun Booking"
       p1: "This is the home page for the Booking Tours."
+    tour:
+      start: "Start: "
+      finish: "Finish: "
     contact:
       title: "Contact"
       p1: "Contact us"
@@ -135,9 +136,6 @@ en:
     index:
       home:
         title: Admin home
-  categories:
-    action:
-      category_not_found: Category not found
   layouts:
     application:
       title: " | Sun Booking Tours"
@@ -150,27 +148,14 @@ en:
       signin: "Sign in"
     footer:
       p1: "2019 Company, Inc."
-  static_pages:
-    home:
-      title: "Home"
-      brand: "Welcome to Sun Booking"
-      signup: "Sign up"
-      name: "Tour name"
-      price: "2.990.000"
-      days: "3 days 2 night"
-      description: "description....."
-      readmore: "Read more"
-    contact:
-      title: "Contact"
-      p1: "Contact us"
-    about:
-      title: "About"
-      p1: "Information about us"
   tours:
     index:
       title: "List Tours"
       signup: "Sign up"
       brand: "Sun Booking"
+    tour:
+      start: "Start: "
+      finish: "Finish: "
       introduction: "Introduction bla bla"
       name: "Tour Name"
       price: "1.990.000"
@@ -189,3 +174,17 @@ en:
   travelling:
     action:
       travelling_not_found: Travelling not found
+  number:
+    currency:
+      format:
+        delimiter: ","
+        format: "%u%n"
+        precision: 2
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "$"
+  time:
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      long: "%B %d, %Y %H:%M"
