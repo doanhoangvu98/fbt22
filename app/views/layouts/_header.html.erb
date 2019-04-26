@@ -8,6 +8,19 @@
       <%= link_to t(".about"), about_path, class: "p-2 text-dark" %>
       <%= link_to t(".contact"), contact_path, class: "p-2 text-dark" %>
       <%= link_to t(".signin"), login_path, class: "btn btn-outline-primary" %>
+      <% if logged_in? && current_user.admin?%>
+        <div class="dropdown show">
+          <a class="btn btn-white dropdown-toggle" href="#" role="button" 
+            id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" 
+            aria-expanded="false"><%= t(".admin") %></a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <%= link_to t(".tours"), admin_tours_path, class: "dropdown-item" %>
+            <%= link_to t(".travellings"), admin_travellings_path, class: "dropdown-item" %>
+            <%= link_to t(".locations"), admin_locations_path, class: "dropdown-item" %>
+          </div>
+        </div>
+      <% end %>
+      <%= link_to t(".signin"), "#", class: "btn btn-outline-primary" %>
     </nav>
     </div>
 </header>

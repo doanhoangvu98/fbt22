@@ -26,6 +26,11 @@ end
 Category.create!(name: "Trong nuoc")
 Category.create!(name: "Ngoai nuoc")
 
+Location.create!(name: "Ha Noi")
+Location.create!(name: "Da Nang")
+
+Travelling.create!(location_start_id: 1, location_end_id: 2)
+
 30.times do |n|
   title  = Faker::Name.title,
   description = Faker::Lorem.paragraphs(2..8),
@@ -34,8 +39,9 @@ Category.create!(name: "Ngoai nuoc")
   num_people = Random.rand(10),
   tour_start = Date.today,
   tour_finish =  Date.parse("2019-05-02")
-  status = "0"
+  status = 0
   category_id = 1
+  travelling_id = 1
   Tour.create!(title: title,
     description: description,
     price: price,
@@ -44,5 +50,6 @@ Category.create!(name: "Ngoai nuoc")
     tour_start: tour_start,
     tour_finish: tour_finish,
     status: status,
-    category_id: category_id)
+    category_id: category_id,
+    travelling_id: travelling_id)
 end

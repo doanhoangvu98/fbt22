@@ -1,0 +1,46 @@
+<%= form_for [:admin, @tour] do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.label :title, t(".title") %>
+  <%= f.text_field :title, class: "form-control" %>
+
+  <%= f.label :category, t(".category") %>
+  <div class="form-group">
+    <%= f.select :category_id, @categories, {selected: @categories.first},
+      {class: "form-control"} %>
+  </div>
+
+  <%= f.label :travelling, t(".travelling") %>
+  <div class="form-group">
+    <%= f.select :travelling_id, @travellings, {selected: @travellings.first},
+      {class: "form-control"} %>
+  </div>
+
+  <%= f.label :description, t(".description") %>
+  <%= f.text_area :description, size: Settings.app.tour.text_area_size,
+    class: "form-control" %>
+
+  <%= f.label :image, t(".image") %>
+  <span class="picture">
+    <%= f.file_field :image, accept: Settings.app.user.image_accept %>
+  </span>
+  <div><%= image_tag @tour.image.url(:thumb) if @tour.image? %></div>
+
+  <%= f.label :price, t(".price") %>
+  <%= f.number_field :price, class: "form-control" %>
+
+  <%= f.label :num_people, t(".num_people") %>
+  <%= f.number_field :num_people, class: "form-control" %>
+
+  <%= f.label :tour_start, t(".tour_start") %>
+  <div class="form-datetime">
+    <%= f.datetime_select :tour_start %>
+  </div>
+
+  <%= f.label :tour_finish, t(".tour_finish") %>
+  <div class="form-datetime">
+    <%= f.datetime_select :tour_finish %>
+  </div>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
