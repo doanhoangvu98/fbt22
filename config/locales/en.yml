@@ -148,6 +148,7 @@ en:
       index:
         title: Tours
         search_tours: Search name
+        search: Search
       tour:
         you_sure: You sure
       destroy:

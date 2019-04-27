@@ -1,0 +1,29 @@
+<div class="admin_layout">
+  <% provide(:title, t(".title")) %>
+  <h1 class="text-center"><%= t(".title") %></h1>
+  <%= form_tag admin_tours_path, method: :get, class: "input-group mb-3" do %>
+    <%= text_field_tag :term, params[:term], placeholder: t(".title"), class: "form-control" %>
+    <div class="input-group-append">
+      <%= button_tag t(".search"), name: nil, class: "btn btn-outline-secondary" %>
+    </div>
+  <% end %>
+  <%= link_to t(".new_tour"), new_admin_tour_path, class: "btn-custom btn btn-primary" %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= t ".sno" %></th>
+        <th><%= t ".title" %></th>
+        <th><%= t ".tour_start" %></th>
+        <th><%= t ".tour_finish" %></th>
+        <th><%= t ".travelling" %></th>
+        <th><%= t ".price" %></th>
+        <th><%= t ".status" %></th>
+        <th><%= t ".action" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @tours %>
+    </tbody>
+  </table>
+  <%= will_paginate %>
+</div>
