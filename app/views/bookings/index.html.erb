@@ -1,0 +1,22 @@
+<div class="admin_layout">
+  <% provide(:title, t(".title")) %>
+  <h1 class="text-center"><%= t(".title") %></h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= t ".sno" %></th>
+        <th><%= t ".title" %></th>
+        <th><%= t ".tour_start" %></th>
+        <th><%= t ".name" %></th>
+        <th><%= t ".phone" %></th>
+        <th><%= t ".quantity" %></th>
+        <th><%= t ".price" %></th>
+        <th><%= t ".status" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @bookings %>
+    </tbody>
+  </table>
+  <%= will_paginate %>
+</div>

@@ -1,0 +1,13 @@
+<tr>
+  <td></td>
+  <td><%= link_to booking.tour.title, tour_path(booking.tour_id) %></td>
+  <td><%= l booking.tour.tour_start, format: :long %></td>
+  <td><%= booking.name %></td>
+  <td><%= booking.phone %></td>
+  <td><%= booking.quantity %></td>
+  <td><%= booking.price %></td>
+  <td id="booking_status-<%= booking.id %>">
+    <%= is_status_authenticated? booking %>
+  </td>
+  </td>
+</tr>

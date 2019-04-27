@@ -1,7 +1,7 @@
 class Tour < ApplicationRecord
   enum status: {open: 0, close: 1}
   has_many :reviews, dependent: :destroy
-  has_many :booking_details, dependent: :destroy
+  has_many :bookings, dependent: :destroy
   belongs_to :category
   belongs_to :travelling
   scope :order_by_create, ->{order created_at: :desc}

@@ -2,6 +2,8 @@ app:
   user:
     first_name_max_length: 20
     last_name_max_length: 10
+    name_max_length: 50
+    phone_max_length: 11
     email_max_length: 80
     pass_min_length: 6
     image_size_mb: 5
@@ -20,5 +22,12 @@ app:
     length: 250
     text_area_size: "20x7"
     title_max_length: 500
+    min_people: 1
+    value_people: 1
+    min_price: 1
+    value_price: 1
   tour_sp:
     length: 100
+  booking:
+    min_number: 1
+    value: 1

@@ -27,10 +27,12 @@
   <div><%= image_tag @tour.image.url(:thumb) if @tour.image? %></div>
 
   <%= f.label :price, t(".price") %>
-  <%= f.number_field :price, class: "form-control" %>
+  <%= f.number_field :price, value: Settings.app.tour.value_price,
+      min: Settings.app.tour.min_price, class: "form-control" %>
 
   <%= f.label :num_people, t(".num_people") %>
-  <%= f.number_field :num_people, class: "form-control" %>
+  <%= f.number_field :num_people, value: Settings.app.tour.value_people,
+      min: Settings.app.tour.min_people, class: "form-control" %>
 
   <%= f.label :tour_start, t(".tour_start") %>
   <div class="form-datetime">
