@@ -2,16 +2,21 @@
   <% provide(:title, t(".title")) %>
   <h1 class="text-center"><%= t(".title") %></h1>
   <table class="table table-striped">
+    <p class="btn btn-primary mr-3"><%= t(".total_revenue") %>: 
+      <span id="total_revenue_booking"><%= number_to_currency @total_revenue %></span></p>
+    <p class="btn btn-dark"><%= t(".total_revenue_moth") %>: 
+      <span id="total_revenue_moth_booking"><%= number_to_currency @total_revenue_moth %></span></p>
     <thead>
       <tr>
         <th><%= t ".sno" %></th>
         <th><%= t ".tour_name" %></th>
-        <th><%= t ".tour_start" %></th>
+        <th><%= t ".create_at" %></th>
         <th><%= t ".name" %></th>
         <th><%= t ".phone" %></th>
         <th><%= t ".quantity" %></th>
         <th><%= t ".price" %></th>
         <th><%= t ".status" %></th>
+        <th><%= t ".action" %></th>
       </tr>
     </thead>
     <tbody>
