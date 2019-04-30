@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       end
     end
     resources :reviews, only: %i(new create destroy edit update)
-    resources :comments
+    resources :comments, only: :create
     namespace :admin do
       root "index#home"
       resources :users, only: %i(index destroy)
@@ -27,6 +27,11 @@ Rails.application.routes.draw do
       resources :categories, only: %i(new create)
       resources :locations
       resources :travellings
+      resources :bookings, only: :index do
+        member do
+          patch :change_status
+        end
+      end
       resources :tours do
         member do
           patch :change_status

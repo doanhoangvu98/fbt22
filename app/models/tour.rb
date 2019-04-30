@@ -8,6 +8,7 @@ class Tour < ApplicationRecord
   scope :load_tours_by_filter, (lambda do |title|
     (where "title LIKE ?", "%#{title}%")
   end)
+  scope :search, ->(term){load_tours_by_filter term}
   delegate :location_start, :location_end, to: :travelling
 
   mount_uploader :image, PictureUploader
@@ -17,10 +18,6 @@ class Tour < ApplicationRecord
   validates :price, presence: true
   validates :num_people, presence: true
   validate :image_size
-
-  def self.search term
-    term ? load_tours_by_filter(term) : all
-  end
 
   def self.search_by search_term
     where "title LIKE ? OR price LIKE ?", "%#{search_term}%", "%#{search_term}%"

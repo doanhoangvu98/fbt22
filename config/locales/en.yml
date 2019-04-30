@@ -285,6 +285,9 @@ en:
       default: "%a, %d %b %Y %H:%M:%S %z"
       long: "%B %d, %Y %H:%M"
   bookings:
+    index:
+      title: User Booking Tours
+      tour_name: Tour Name
     create:
       booking_success: Booking success
       booking_fail: Booking fail

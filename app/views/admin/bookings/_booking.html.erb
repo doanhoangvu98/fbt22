@@ -1,0 +1,16 @@
+<tr>
+  <td></td>
+  <td><%= link_to booking.tour.title, tour_path(booking.tour_id) %></td>
+  <td><%= l booking.created_at, format: :long %></td>
+  <td><%= booking.name %></td>
+  <td><%= booking.phone %></td>
+  <td><%= booking.quantity %></td>
+  <td><%= number_to_currency booking.price %></td>
+  <td id="booking_status_<%= booking.id %>"><%= booking.status %></td>
+  <td class="d-flex">
+    <%= link_to t(".accept"), change_status_admin_booking_path(booking, status: Booking.statuses.key(3)),
+      class: "btn btn-success btn-sm", method: :patch, remote: true %>
+    <%= link_to t(".reject"), change_status_admin_booking_path(booking, status: Booking.statuses.key(2)),
+      class: "btn btn-danger btn-sm", method: :patch, remote: true %>
+  </td>
+</tr>
