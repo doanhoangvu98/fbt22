@@ -1,10 +1,10 @@
 <tr>
   <td></td>
   <td><%= tour.title %></td>
-  <td><%= tour.tour_start %></td>
-  <td><%= tour.tour_finish %></td>
+  <td><%= l tour.tour_start, format: :long %></td>
+  <td><%= l tour.tour_finish, format: :long %></td>
   <td><%= tour.location_start.name %> - <%= tour.location_end.name %></td>
-  <td><%= tour.price %></td>
+  <td><%= number_to_currency tour.price %></td>
   <td id="tour_status-<%= tour.id %>">
     <%= is_status_close? tour %>
   </td>

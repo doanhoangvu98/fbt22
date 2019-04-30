@@ -4,6 +4,18 @@ module Admin::AdministratorsHelper
     redirect_to root_path unless logged_in? && current_user.admin?
   end
 
+  def total_tours user
+    user.bookings.accept.count
+  end
+
+  def total_money user
+    user.bookings.accept.sum(:price)
+  end
+
+  def latest_booking user
+    user.bookings.latest_created
+  end
+
   def is_status_close? tour
     if tour.close?
       link_to t(".close"), change_status_admin_tour_path(tour),

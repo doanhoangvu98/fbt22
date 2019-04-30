@@ -5,7 +5,7 @@
   <td><%= booking.name %></td>
   <td><%= booking.phone %></td>
   <td><%= booking.quantity %></td>
-  <td><%= booking.price %></td>
+  <td><%= number_to_currency booking.price %></td>
   <td id="booking_status-<%= booking.id %>">
     <%= is_status_authenticated? booking %>
   </td>
