@@ -7,4 +7,11 @@ class Review < ApplicationRecord
   scope :order_by_create, ->{order created_at: :desc}
   validates :content, presence: true
   validates :rating, inclusion: {in: 1..5}
+  validates :type_review, presence: true
+  validates :user_id, presence: true
+  validates :content, presence: true,
+    length: {maximum: Settings.app.review.length}
+
+  delegate :lastname, :email, to: :user
+  delegate :title, to: :tour
 end

@@ -78,6 +78,29 @@ en:
       title: "About"
       p1: "Information about us"
   admin:
+    bookings:
+      index:
+        title: Manager Booking Tours
+    reviews:
+      review:
+        you_sure: You sure
+      destroy:
+        review_deleted: Review deleted
+        review_delete_error: Review delete error
+      index:
+        title: Manager Reviews
+    users:
+      index:
+        title: Manager Users
+        latest_created: Latest date booking
+        total_tour_booked: Total tour booked
+        total_money_paid: Total money paid
+      user:
+        never_booked: Never booked
+        you_sure: You sure
+      destroy:
+        user_deleted: User deleted
+        user_delete_error: User delete error
     categories:
       form:
         name: Name
