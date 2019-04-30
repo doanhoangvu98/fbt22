@@ -10,6 +10,9 @@
 # Ignore uploaded test images.
 /public/uploads
 
+# Ignore en js file.
+/public/javascripts/en.js
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal

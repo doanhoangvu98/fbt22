@@ -1,13 +1,7 @@
 class UsersController < ApplicationController
-  before_action :load_user, except: %i(create new index)
+  before_action :load_user, except: %i(create new)
   before_action :logged_in_user, except: %i(show new create)
   before_action :correct_user, only: %i(edit update)
-  before_action :admin_user, only: :destroy
-
-  def index
-    @users = User.sort_by_created_at_desc.paginate page: params[:page],
-      per_page: Settings.app.user.per_page
-  end
 
   def new
     @user = User.new
@@ -20,7 +14,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = t ".signup_success"
-      redirect_to @user
+      redirect_to tours_path
     else
       render :new
     end
@@ -31,19 +25,10 @@ class UsersController < ApplicationController
   def update
     if @user.update_attributes user_params
       flash[:success] = t ".profile_updated"
-      redirect_to @user
+      redirect_to tours_path
     else
       render :edit
     end
-  end
-
-  def destroy
-    if @user.destroy
-      flash[:success] = t ".user_deleted"
-    else
-      flash[:danger] = t ".user_delete_error"
-    end
-    redirect_to users_path
   end
 
   private
