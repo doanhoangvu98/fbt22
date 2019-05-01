@@ -44,6 +44,25 @@ Location.create!(name: "Da Nang")
 Travelling.create!(location_start_id: 1, location_end_id: 2)
 
 30.times do |n|
+  quantity = Random.rand(1..5)
+  price = Random.rand(10..500)
+  phone = "0977469596"
+  name  = Faker::Name.name
+  status = Random.rand(4)
+  user_id = Random.rand(1..30)
+  tour_id = Random.rand(1..30)
+  Booking.create!(
+    quantity: quantity,
+    price: price,
+    phone: phone,
+    name: name,
+    status: status,
+    user_id: user_id,
+    tour_id: tour_id
+  )
+end
+
+30.times do |n|
   title  = Faker::Name.title
   description = Faker::Lorem.paragraphs(2..8)
   price = "299"
@@ -66,7 +85,8 @@ Travelling.create!(location_start_id: 1, location_end_id: 2)
     travelling_id: travelling_id)
 end
 
-100.times do |n|
+50.times do |n|
+  type_review = Random.rand(0..2)
   rating = Random.rand(1..5)
   content = Faker::Lorem.sentence(10)
   user_id = Random.rand(1..31)

@@ -81,6 +81,14 @@ en:
     bookings:
       index:
         title: Manager Booking Tours
+    reviews:
+      review:
+        you_sure: You sure
+      destroy:
+        review_deleted: Review deleted
+        review_delete_error: Review delete error
+      index:
+        title: Manager Reviews
     users:
       index:
         title: Manager Users

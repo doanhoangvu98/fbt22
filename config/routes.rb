@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     namespace :admin do
       root "index#home"
       resources :users, only: %i(index destroy)
+      resources :reviews, only: %i(index destroy)
       resources :categories, only: %i(new create)
       resources :locations
       resources :travellings

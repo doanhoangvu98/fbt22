@@ -1,0 +1,11 @@
+<tr>
+  <td></td>
+  <td><%= review.lastname %></td>
+  <td><%= link_to review.title, tour_path(review.tour_id) %></td>
+  <td><%= review.content %></td>
+  <td><%= review.rating %></td>
+  <td>
+    <%= link_to t(".delete"), admin_review_path(review), method: :delete,
+      data: { confirm: t(".you_sure") } %>
+  </td>
+</tr>
