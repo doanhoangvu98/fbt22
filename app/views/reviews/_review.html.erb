@@ -1,0 +1,30 @@
+<div class="card-body">
+  <div class="row">
+    <div class="col-md-2">
+      <%= image_tag check_none_image(review.user),
+        size: Settings.app.user.avatar_size_review %>
+      <p class="text-secondary">
+        <%= t(".ago", time: time_ago_in_words(review.created_at)) %>
+      </p>
+    </div>
+    <div class="col-md-10">
+      <p>
+        <a class="float-left" href="">
+          <strong><%= review.user.full_name %></strong>
+        </a>
+        <div class="star-rating float-right"><%= review.rating %></div>
+      </p>
+      <div class="clearfix"></div>
+      <p><%= review.content %></p>
+      <p>
+        <a class="float-right btn btn-outline-primary ml-2">
+          <i class="fa fa-reply"></i><%= t ".reply" %>
+        </a>
+        <a class="float-right btn text-white btn-danger">
+          <i class="fa fa-heart"></i><%= t ".like" %>
+        </a>
+      </p>
+    </div>
+  </div>
+  <hr>
+</div>

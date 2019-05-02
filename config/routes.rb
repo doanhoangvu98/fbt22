@@ -27,5 +27,9 @@ Rails.application.routes.draw do
         patch :change_status
       end
     end
+    resources :tours do
+      resources :reviews
+    end
+    resources :reviews, only: %i(new create destroy)
   end
 end
