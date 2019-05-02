@@ -18,7 +18,7 @@ Rails.application.configure do
 
     config.cache_store = :memory_store
     config.public_file_server.headers = {
-      'Cache-Control' => "public, max-age=#{2.days.seconds.to_i}"
+      'Cache-Control' => 'public, max-age=#{2.days.seconds.to_i}'
     }
   else
     config.action_controller.perform_caching = false
@@ -53,4 +53,6 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.middleware.use I18n::JS::Middleware
+
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end

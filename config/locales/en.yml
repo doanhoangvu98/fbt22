@@ -44,6 +44,14 @@ en:
       log_out: Log out
       setting: Setting
       user: User
+    sessions:
+      new:
+        title: "Login"
+        submit: "Login"
+    registrations:
+      new:
+        title: "Sign up"
+        submit: "Sign up"
   shared:
     error_messages:
       form_contains: "The form contains"
@@ -78,6 +86,29 @@ en:
       title: "About"
       p1: "Information about us"
   admin:
+    bookings:
+      index:
+        title: Manager Booking Tours
+    reviews:
+      review:
+        you_sure: You sure
+      destroy:
+        review_deleted: Review deleted
+        review_delete_error: Review delete error
+      index:
+        title: Manager Reviews
+    users:
+      index:
+        title: Manager Users
+        latest_created: Latest date booking
+        total_tour_booked: Total tour booked
+        total_money_paid: Total money paid
+      user:
+        never_booked: Never booked
+        you_sure: You sure
+      destroy:
+        user_deleted: User deleted
+        user_delete_error: User delete error
     categories:
       form:
         name: Name
@@ -220,6 +251,7 @@ en:
       description: "description about tour"
       book: "Book"
       review:
+        zero: "No reviews"
         one: "1 review"
         other: "%{count} reviews"
     show:
@@ -262,6 +294,9 @@ en:
       default: "%a, %d %b %Y %H:%M:%S %z"
       long: "%B %d, %Y %H:%M"
   bookings:
+    index:
+      title: User Booking Tours
+      tour_name: Tour Name
     create:
       booking_success: Booking success
       booking_fail: Booking fail
@@ -295,3 +330,7 @@ en:
         danger: "Can't unlike"
       load:
         danger: "Not found"
+    bookings:
+      waiting: "Change to waiting"
+      cancel: "Cancel successful"
+      expire: "Expire day"

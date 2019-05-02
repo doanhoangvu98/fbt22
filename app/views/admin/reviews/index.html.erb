@@ -1,0 +1,20 @@
+<div class="admin_layout">
+  <% provide(:title, t(".title")) %>
+  <h1><%= t(".title") %></h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= t ".sno" %></th>
+        <th><%= t ".name" %></th>
+        <th><%= t ".tour" %></th>
+        <th><%= t ".content" %></th>
+        <th><%= t ".rating" %></th>
+        <th><%= t ".action" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @reviews %>
+    </tbody>
+  </table>
+  <%= will_paginate %>
+</div>

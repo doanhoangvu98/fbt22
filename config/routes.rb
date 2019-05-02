@@ -1,30 +1,37 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
+    devise_for :users, controllers: { sessions: "users/sessions", registrations: "users/registrations" }
+
+    devise_scope :user do
+      get "sign_in", to: "users/sessions#new"
+    end
+
     root "static_pages#home"
 
-    get "/signup", to: "users#new"
-    get "/login", to: "sessions#new"
-    post "/login", to: "sessions#create"
-    delete "/logout", to: "sessions#destroy"
     get "/tours", to: "tours#index"
-    get "/about", to: "static_pages#about"
-    get "/contact", to: "static_pages#contact"
     resources :users, expect: %i(index destroy)
     resources :tours, only: %i(show index) do
       resources :reviews
     end
-    resources :bookings, only: %i(create index) do
+    resources :bookings, only: %i(new create index) do
       member do
         patch :change_status
       end
     end
     resources :reviews, only: %i(new create destroy edit update)
-    resources :comments
+    resources :comments, only: :create
     namespace :admin do
       root "index#home"
+      resources :users, only: %i(index destroy)
+      resources :reviews, only: %i(index destroy)
       resources :categories, only: %i(new create)
       resources :locations
       resources :travellings
+      resources :bookings, only: :index do
+        member do
+          patch :change_status
+        end
+      end
       resources :tours do
         member do
           patch :change_status

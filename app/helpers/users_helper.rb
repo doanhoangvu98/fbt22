@@ -5,7 +5,7 @@ module UsersHelper
 
   # Confirms a logged-in user.
   def logged_in_user
-    return if logged_in?
+    return if user_signed_in?
     store_location
     flash[:danger] = t "users.action.please_login"
     redirect_to login_path
@@ -20,7 +20,6 @@ module UsersHelper
   end
 
   def check_liked review
-    # review.likes.liked(current_user.id, review.id)
-    review.likes.find{|like| like.user_id == current_user.id}
+    review.likes.liked(current_user.id, review.id)
   end
 end

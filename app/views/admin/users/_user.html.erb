@@ -1,0 +1,13 @@
+<tr>
+  <td></td>
+  <td><%= user.lastname %></td>
+  <td><%= user.email %></td>
+  <td><%= latest_booking(user).present? ? l(latest_booking(user),
+    format: :long) : t(".never_booked") %></td>
+  <td><%= total_tours user %></td>
+  <td><%= number_to_currency total_money user %></td>
+  <td>
+    <%= link_to t(".delete"), admin_user_path(user), method: :delete,
+      data: { confirm: t(".you_sure") } %>
+  </td>
+</tr>

@@ -2,22 +2,23 @@ class LikesController < ApplicationController
   before_action :load_review
   before_action :load_like, only: :destroy
 
+  before_action :load_like, :already_liked?, only: :destroy
+
   def create
-    if already_liked?
-      flash[:danger] = t "controllers.likes.create.danger"
-    else
-      @like = Like.create(user_id: current_user.id, review_id: @review.id)
+    @like = Like.create(user_id: current_user.id, review_id: @review.id)
+    if @like.save
       flash[:success] = t "controllers.likes.create.success"
+    else
+      flash[:danger] = t "controllers.likes.create.danger"
     end
     redirect_to tour_path @review.tour
   end
 
   def destroy
-    if !already_liked?
-      flash[:danger] = t "controllers.likes.destroy.danger"
-    else
-      @like.destroy
+    if @like.destroy
       flash[:success] = t "controllers.likes.destroy.success"
+    else
+      flash[:danger] = t "controllers.likes.destroy.danger"
     end
     redirect_to tour_path @review.tour
   end
