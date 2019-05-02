@@ -50,9 +50,7 @@
                     <li class="offers_icons_item"><img src="" alt=""></li>
                   </ul>
                 </div>
-                <div class="button book_button">
-                  <%= link_to t(".booking"), new_booking_path(tour_id: @tour.id) %>
-                </div>
+                <%= render "bookings/form" %>
               </div>
             </div>
           </div>

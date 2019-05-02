@@ -1,0 +1,9 @@
+<%= form_for current_user.comments.build, remote: true do |f| %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: t(".comment"), required: true,
+      class: "mb-0 mt-2" %>
+  </div>
+  <%= hidden_field_tag :review_id, review.id %>
+  <%= f.submit t(".comment"),
+    class: "col-md-2 float-right btn btn-outline-primary" %>
+<% end %>

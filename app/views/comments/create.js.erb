@@ -1,0 +1,5 @@
+$('#comment_review_<%= @review.id %>').html('<%= j render load_comment_review @review %>');
+$('#comment_form_<%= @review.id %>').html('<%= j render "comments/form",
+  review: @review %>');
+$('#count_comment_<%= @review.id %>').html('<%= t(".comment",
+  count: @review.comments.count) %>');

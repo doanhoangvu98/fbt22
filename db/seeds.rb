@@ -68,11 +68,32 @@ end
 
 100.times do |n|
   rating = Random.rand(1..5)
-  content = Faker::Lorem.paragraphs(1)
+  content = Faker::Lorem.sentence(10)
   user_id = Random.rand(1..31)
   tour_id = Random.rand(1..30)
   Review.create!(rating: rating,
     content: content,
     user_id: user_id,
     tour_id: tour_id)
+end
+
+5.times do |n|
+  content = Faker::Lorem.sentence(10)
+  user_id = Random.rand(1..30)
+  review_id = Random.rand(6..7)
+  Comment.create!(content: content,
+    reply_id: reply_id,
+    user_id: user_id,
+    review_id: review_id)
+end
+
+5.times do |n|
+  content = Faker::Lorem.sentence(10)
+  reply_id = Random.rand(1..5)
+  user_id = Random.rand(1..30)
+  review_id = Random.rand(6..7)
+  Comment.create!(content: content,
+    reply_id: reply_id,
+    user_id: user_id,
+    review_id: review_id)
 end

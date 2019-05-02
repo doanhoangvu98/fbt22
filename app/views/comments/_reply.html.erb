@@ -1,0 +1,21 @@
+<div class="card-body">
+  <div class="row">
+    <div class="col-md-2">
+      <%= image_tag check_none_image(reply.user),
+        size: Settings.app.user.avatar_size_review %>
+      <p class="text-secondary">
+        <%= t(".ago", time: time_ago_in_words(reply.created_at)) %>
+      </p>
+    </div>
+    <div class="col-md-10">
+      <p>
+        <a class="float-left" href="">
+          <strong><%= reply.user.full_name %></strong>
+        </a>
+      </p>
+      <div class="clearfix"></div>
+      <p><%= reply.content %></p>
+    </div>
+  </div>
+  <hr>
+</div>

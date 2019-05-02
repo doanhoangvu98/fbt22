@@ -9,6 +9,7 @@ class ToursController < ApplicationController
   def show
     @reviews = @tour.reviews.order_by_create.paginate page: params[:page],
       per_page: Settings.app.page
+    @booking = Booking.new
   end
 
   private

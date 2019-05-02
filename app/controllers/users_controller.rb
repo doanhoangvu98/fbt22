@@ -60,14 +60,6 @@ class UsersController < ApplicationController
     redirect_to :root
   end
 
-  # Confirms a logged-in user.
-  def logged_in_user
-    return if logged_in?
-    store_location
-    flash[:danger] = t "users.action.please_login"
-    redirect_to login_path
-  end
-
   # Confirms the correct user.
   def correct_user
     redirect_to root_path unless current_user? @user
