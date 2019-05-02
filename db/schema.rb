@@ -35,10 +35,16 @@ ActiveRecord::Schema.define(version: 20190423063331) do
   end
 
   create_table "bookings", force: :cascade do |t|
+    t.integer "quantity"
+    t.integer "price"
+    t.string "phone"
+    t.string "name"
     t.integer "status", default: 0
     t.integer "user_id"
+    t.integer "tour_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["tour_id"], name: "index_bookings_on_tour_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 

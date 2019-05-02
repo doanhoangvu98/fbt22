@@ -217,3 +217,9 @@ en:
     formats:
       default: "%a, %d %b %Y %H:%M:%S %z"
       long: "%B %d, %Y %H:%M"
+  bookings:
+    create:
+      booking_success: Booking success
+      booking_fail: Booking fail
+    form:
+      booking: Booking
