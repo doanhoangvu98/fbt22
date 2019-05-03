@@ -15,6 +15,7 @@
 //= require popper
 //= require turbolinks
 //= require_tree .
+//= require jquery_ujs
 //= require bootstrap
 //= require i18n
 //= require i18n.js
