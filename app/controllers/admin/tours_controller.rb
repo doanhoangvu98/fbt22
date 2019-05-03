@@ -19,8 +19,8 @@ class Admin::ToursController < ApplicationController
   end
 
   def index
-    @tours = Tour.search(params[:term]).order_by_create
-      .paginate page: params[:page], per_page: Settings.app.user.per_page
+    @tours = Tour.search(params[:term]).order_by_create.paginate page:
+      params[:page], per_page: Settings.app.user.per_page
   end
 
   def edit; end

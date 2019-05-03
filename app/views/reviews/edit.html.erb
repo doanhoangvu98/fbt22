@@ -1,0 +1,20 @@
+<div class="col-md-12">
+  <%= form_for @review do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+
+    <%= f.hidden_field :tour_id %>
+
+    <%= f.hidden_field :user_id %>
+
+    <%= f.label :type, t("reviews.form.type_review") %>
+    <%= f.select :type_review, Review.type_reviews.keys, {}, {class: "form-control"} %>
+
+    <%= f.label :rating, t("reviews.form.rating") %>
+    <%= f.number_field :rating, class: "form-control" %>
+
+    <div class="field">
+      <%= f.text_area :content, placeholder: t("reviews.form.input") %>
+    </div>
+    <%= f.submit t("reviews.edit.submit"), class: "btn btn-primary" %>
+  <% end %>
+</div>

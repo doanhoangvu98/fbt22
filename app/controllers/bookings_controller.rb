@@ -21,8 +21,8 @@ class BookingsController < ApplicationController
   end
 
   def index
-    @bookings = current_user.bookings.order_by_create
-      .paginate page: params[:page], per_page: Settings.app.user.per_page
+    @bookings = current_user.bookings.order_by_create.paginate page:
+      params[:page], per_page: Settings.app.user.per_page
   end
 
   def change_status

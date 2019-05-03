@@ -172,16 +172,24 @@ en:
       about: "About"
       contact: "Contact"
       signin: "Sign in"
+      log_out: Log out
+      setting: Setting
+      user: User
     footer:
       p1: "2019 Company, Inc."
   reviews:
     review:
       ago: "%{time} ago"
+      delete: "Delete"
+      sure: "Are you sure?"
+      edit: "Edit"
     form:
       type_review: "Type review"
       rating: "Rating"
       input: "Enter your review ... "
       submit: "Review"
+    edit:
+      submit: "Update"
   tours:
     index:
       title: "List Tours"
@@ -248,8 +256,15 @@ en:
     reviews:
       create:
         success: "Review was successfully created."
-        danger: "Error"
+        danger: "Error. Please check input"
+      destroy:
+        success: "Review was successfully deleted"
+        danger: "Can't delete"
       load:
         danger: "Not found"
-      load:
-        danger: "Not found"
+    comments:
+      destroy:
+        success: "Comment was successfully deleted"
+        danger: "Can't delete"
+      set:
+        not_found: "Not found"
