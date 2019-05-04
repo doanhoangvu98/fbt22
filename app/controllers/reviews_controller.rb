@@ -19,9 +19,9 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update_attributes review_params
-      flash[:success] = t "controllers.reviews.destroy.success"
+      flash[:success] = t "controllers.reviews.update.success"
     else
-      flash[:danger] = t "controllers.reviews.destroy.danger"
+      flash[:danger] = t "controllers.reviews.update.danger"
     end
     redirect_to @review.tour
   end

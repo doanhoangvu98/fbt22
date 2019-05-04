@@ -262,6 +262,9 @@ en:
         danger: "Can't delete"
       load:
         danger: "Not found"
+      update:
+        success: "Update successed"
+        danger: "Can't update"
     comments:
       destroy:
         success: "Comment was successfully deleted"
