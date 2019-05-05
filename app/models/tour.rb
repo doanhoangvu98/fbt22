@@ -22,6 +22,14 @@ class Tour < ApplicationRecord
     term ? load_tours_by_filter(term) : all
   end
 
+  def self.search_by search_term
+    where "title LIKE ? OR price LIKE ?", "%#{search_term}%", "%#{search_term}%"
+  end
+
+  def average_review
+    reviews.sum("rating") / reviews.count
+  end
+
   private
 
   # Validates the size of an uploaded picture.
