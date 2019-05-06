@@ -32,6 +32,15 @@
             class: "float-right btn text-white btn-success" %>
         <% end %>
       </p>
+      <h3 id="count_comment_<%= review.id %>">
+        <%= t(".comment", count: review.comments.count) %>
+      </h3>
+      <div id = "comment_review_<%= review.id %>">
+        <%= render load_comment_review review %>
+      </div>
+      <div id = "comment_form_<%= review.id %>">
+        <%= render "comments/form", review: review %>
+      <div>
     </div>
   </div>
   <hr>

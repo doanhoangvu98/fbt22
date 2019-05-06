@@ -1,33 +1,29 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: :destroy
+  before_action :load_review, only: :create
 
   def create
-    @comment = Comment.create comment_params
-    respond_to do |format|
-      format.html{redirect_to :back}
-      format.js
-    end
-  end
-
-  def destroy
-    if @comment.destroy
-      flash[:success] = t "controllers.comments.destroy.success"
+    @comment = current_user.comments.build comment_params
+    @comment.review_id = @review.id
+    if @comment.save
+      respond_to do |format|
+        format.js
+      end
     else
-      flash[:danger] = t "controllers.comments.destroy.danger"
+      flash[:danger] = t ".comment_error"
+      redirect_to @review.tour
     end
-    redirect_to :back
   end
 
   private
 
   def comment_params
-    params.require(:comment).permit :post_id, :user_id, :content
+    params.require(:comment).permit :content, :reply_id
   end
 
-  def set_comment
-    @comment = Comment.find_by id: params[:id]
-    return if @comment
-    flash[:danger] = t "controllers.comments.set.not_found"
+  def load_review
+    @review = Review.find_by id: params[:review_id]
+    return if @review
+    flash[:danger] = t "action.review_not_found"
     redirect_to :root
   end
 end

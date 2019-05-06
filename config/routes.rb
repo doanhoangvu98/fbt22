@@ -9,6 +9,17 @@ Rails.application.routes.draw do
     get "/tours", to: "tours#index"
     get "/about", to: "static_pages#about"
     get "/contact", to: "static_pages#contact"
+    resources :users, expect: %i(index destroy)
+    resources :tours, only: %i(show index) do
+      resources :reviews
+    end
+    resources :bookings, only: %i(create index) do
+      member do
+        patch :change_status
+      end
+    end
+    resources :reviews, only: %i(new create destroy edit update)
+    resources :comments
     namespace :admin do
       root "index#home"
       resources :categories, only: %i(new create)
@@ -20,16 +31,5 @@ Rails.application.routes.draw do
         end
       end
     end
-    resources :users
-    resources :tours, only: %i(show index)
-    resources :bookings, only: %i(new create index) do
-      member do
-        patch :change_status
-      end
-    end
-    resources :tours do
-      resources :reviews
-    end
-    resources :reviews, only: %i(new create destroy edit update)
   end
 end

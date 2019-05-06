@@ -1,4 +1,15 @@
 en:
+  comments:
+    form:
+      comment: Comment
+    reply_form:
+      reply: Reply
+    comment:
+      ago: "%{time} ago"
+    reply:
+      ago: "%{time} ago"
+    create:
+      comment: "Comments (%{count})"
   users:
     action:
       user_not_found: "User not found"
@@ -183,6 +194,7 @@ en:
       delete: "Delete"
       sure: "Are you sure?"
       edit: "Edit"
+      comment: "Comments (%{count})"
     form:
       type_review: "Type review"
       rating: "Rating"

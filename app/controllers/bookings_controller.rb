@@ -1,23 +1,13 @@
 class BookingsController < ApplicationController
-  before_action :load_tour, except: %i(index change_status)
-  before_action :load_booking, only: %i(change_status)
-  before_action :not_logged_in, except: :new
-
-  def new
-    @booking = Booking.new
-  end
+  before_action :logged_in_user
+  before_action :load_tour, only: :create
+  before_action :load_booking, only: :change_status
 
   def create
     @booking = current_user.bookings.new booking_params
     @booking.tour_id = @tour.id
     @booking.price = @booking.quantity * @tour.price
-    if @booking.save
-      flash[:success] = t ".booking_success"
-      redirect_to bookings_path
-    else
-      flash[:danger] = t ".booking_fail"
-      render :new
-    end
+    save_success?
   end
 
   def index
@@ -56,9 +46,15 @@ class BookingsController < ApplicationController
     redirect_to :root
   end
 
-  def not_logged_in
-    return if logged_in?
-    flash[:danger] = t "users.user_not_logged_in"
-    redirect_to :root
+  def save_success?
+    if @booking.save
+      flash[:success] = t ".booking_success"
+      redirect_to bookings_path
+    else
+      flash[:danger] = t ".booking_fail"
+      @reviews = @tour.reviews.order_by_create.paginate page: params[:page],
+        per_page: Settings.app.page
+      render "tours/show"
+    end
   end
 end
