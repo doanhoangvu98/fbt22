@@ -242,9 +242,9 @@ en:
       days: "2 day"
       description: "description about tour"
       book: "Book"
-      review_content: "very good"
-      review_count: "99 reviews"
-      rating: "8.0"
+      review:
+        one: "1 review"
+        other: "%{count} reviews"
     show:
       danger: "Content not exist"
       title: "Tour details"

@@ -21,13 +21,6 @@
             <%= t ".finish" %><%= l tour.tour_finish, format: :long %>
           </span>
         </div>
-        <div class="rating_r rating_r_3 offers_rating"
-          data-rating="3">
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-        </div>
         <p class="offers_text">
           <%= truncate(tour.description,
             :length => Settings.app.tour.length) %>
@@ -45,15 +38,12 @@
         </div>
         <div class="offer_reviews">
           <div class="offer_reviews_content">
-            <div class="offer_reviews_title">
-              <%= t(".review_content") %>
-            </div>
             <div class="offer_reviews_subtitle">
-              <%= t(".review_count") %>
+              <h6><%= t(".review", count: tour.reviews.count) %></h6>
             </div>
           </div>
           <div class="offer_reviews_rating text-center">
-            <%= t(".rating") %>
+            <%= tour.average_review %>
           </div>
         </div>
       </div>
