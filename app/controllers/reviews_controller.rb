@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     if @review.save
       flash[:success] = t "controllers.reviews.create.success"
     else
-      flash[:danger] = t "controllers.reviews.create.success"
+      flash[:danger] = t "controllers.reviews.create.danger"
     end
     redirect_to @review.tour
   end
