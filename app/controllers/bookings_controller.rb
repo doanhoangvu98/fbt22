@@ -16,10 +16,17 @@ class BookingsController < ApplicationController
   end
 
   def change_status
-    if @booking.cancel?
+    if @booking.cancel? && @booking.tour.tour_start < Time.now
       @booking.waiting!
+      flash[:danger] = "waiting"
+      redirect_to bookings_path
     elsif @booking.waiting?
       @booking.cancel!
+      flash[:danger] = "cancel"
+      redirect_to bookings_path
+    else
+      flash[:danger] = "Expire day"
+      redirect_to bookings_path
     end
     respond_to do |format|
       format.js

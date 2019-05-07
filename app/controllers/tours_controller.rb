@@ -5,7 +5,7 @@ class ToursController < ApplicationController
     if params[:search]
       @search_term = params[:search]
     end
-    @tours = Tour.order_by_create.search_by(@search_term).paginate page: params[:page],
+    @tours = Tour.order_by_create.paginate page: params[:page],
       per_page: Settings.app.page
   end
 
