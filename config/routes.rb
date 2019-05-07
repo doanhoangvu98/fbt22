@@ -13,18 +13,25 @@ Rails.application.routes.draw do
     resources :tours, only: %i(show index) do
       resources :reviews
     end
-    resources :bookings, only: %i(create index) do
+    resources :bookings, only: %i(new create index) do
       member do
         patch :change_status
       end
     end
     resources :reviews, only: %i(new create destroy edit update)
-    resources :comments
+    resources :comments, only: :create
     namespace :admin do
       root "index#home"
+      resources :users, only: %i(index destroy)
+      resources :reviews, only: %i(index destroy)
       resources :categories, only: %i(new create)
       resources :locations
       resources :travellings
+      resources :bookings, only: :index do
+        member do
+          patch :change_status
+        end
+      end
       resources :tours do
         member do
           patch :change_status

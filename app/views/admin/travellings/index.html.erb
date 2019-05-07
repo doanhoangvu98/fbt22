@@ -1,21 +1,23 @@
-<% provide(:title, t(".title")) %>
-<h1><%= t(".title") %></h1>
-<% provide(:button_text, t(".button_create")) %>
-<div>
-  <%= render "form" %>
+<div class="admin_layout">
+  <% provide(:title, t(".title")) %>
+  <h1><%= t(".title") %></h1>
+  <% provide(:button_text, t(".button_create")) %>
+  <div>
+    <%= render "form" %>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= t ".sno" %></th>
+        <th><%= t ".start" %></th>
+        <th><%= t ".end" %></th>
+        <th><%= t ".edit" %></th>
+        <th><%= t ".delete" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @travellings %>
+    </tbody>
+  </table>
+  <%= will_paginate %>
 </div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= t ".sno" %></th>
-      <th><%= t ".start" %></th>
-      <th><%= t ".end" %></th>
-      <th><%= t ".edit" %></th>
-      <th><%= t ".delete" %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render @travellings %>
-  </tbody>
-</table>
-<%= will_paginate %>

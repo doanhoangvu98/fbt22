@@ -1,0 +1,3 @@
+$('#booking_status_<%= @booking.id %>').html('<%= @booking.status %>');
+$('#total_revenue_booking').html('<%= number_to_currency @total_revenue %>');
+$('#total_revenue_moth_booking').html('<%= number_to_currency @total_revenue_moth %>');

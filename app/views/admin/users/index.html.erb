@@ -1,22 +1,21 @@
 <div class="admin_layout">
   <% provide(:title, t(".title")) %>
   <h1><%= t(".title") %></h1>
-  <% provide(:button_text, t(".button_create")) %>
-  <div>
-    <%= render "form" %>
-  </div>
   <table class="table table-striped">
     <thead>
       <tr>
         <th><%= t ".sno" %></th>
         <th><%= t ".name" %></th>
-        <th><%= t ".edit" %></th>
-        <th><%= t ".delete" %></th>
+        <th><%= t ".email" %></th>
+        <th><%= t ".latest_date_booking" %></th>
+        <th><%= t ".total_tour_booked" %></th>
+        <th><%= t ".total_money_paid" %></th>
+        <th><%= t ".action" %></th>
       </tr>
     </thead>
     <tbody>
-      <%= render @locations %>
+      <%= render @users %>
     </tbody>
   </table>
   <%= will_paginate %>
-<div>
+</div>
