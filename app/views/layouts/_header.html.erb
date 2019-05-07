@@ -5,17 +5,17 @@
     <nav class="my-2 my-md-0 mr-md-3">
       <%= link_to t(".home"), root_path, class: "p-2 text-dark" %>
       <%= link_to t(".tour"), tours_path, class: "p-2 text-dark" %>
-      <% if logged_in? %>
+      <% if signed_in? %>
         <div class="dropdown show d-inline">
           <a class="btn btn-white dropdown-toggle" href="#" role="button"
             id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false"><%= t(".user") %></a>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <%= link_to t(".settings"), edit_user_path(current_user), class: "dropdown-item" %>
+            <%= link_to t(".settings"), edit_user_registration_path, class: "dropdown-item" %>
             <div class="dropdown-divider"></div>
             <%= link_to t(".bookings"), bookings_path, class: "dropdown-item" %>
             <div class="dropdown-divider"></div>
-            <%= link_to t(".log_out"), logout_path, method: :delete, class: "dropdown-item" %>
+            <%= link_to t(".log_out"), destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </div>
         <% if current_user.admin? %>
@@ -38,7 +38,8 @@
           </div>
         <% end %>
       <% else %>
-        <%= link_to t(".signin"), login_path, class: "btn btn-outline-primary" %>
+       <%= link_to "Sign up", new_user_registration_path, class: "btn btn-outline-primary" %>
+        <%= link_to t(".signin"), sign_in_path, class: "btn btn-outline-primary" %>
       <% end %>
     </nav>
   </div>

@@ -1,4 +1,5 @@
 class Like < ApplicationRecord
+  include UsersHelper
   belongs_to :user
   belongs_to :review
   scope :liked, (lambda do |user_id, review_id|

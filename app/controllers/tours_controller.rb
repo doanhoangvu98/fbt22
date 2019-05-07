@@ -1,5 +1,5 @@
 class ToursController < ApplicationController
-  before_action :load_tour, only: :show
+  before_action :load_tour, :load_review, only: :show
 
   def index
     @search_term = params[:search] if params[:search]
@@ -8,8 +8,6 @@ class ToursController < ApplicationController
   end
 
   def show
-    @reviews = @tour.reviews.order_by_create.paginate page: params[:page],
-      per_page: Settings.app.page
     @booking = Booking.new
   end
 
@@ -20,5 +18,11 @@ class ToursController < ApplicationController
     return if @tour
     flash[:danger] = t ".danger"
     redirect_to root_path
+  end
+
+  def load_review
+    @reviews = @tour.reviews.order_by_create.paginate page: params[:page],
+      per_page: Settings.app.page
+    return if @review
   end
 end

@@ -3,7 +3,6 @@
   <div class="col-md-5 p-lg-5 mx-auto my-5">
     <h1 class="display-4 font-weight-normal"><%= t(".brand") %></h1>
     <p class="lead font-weight-normal"><%= t(".introduction") %></p>
-    <%= link_to t(".signup"), signup_path, class: "btn btn-primary" %>
   </div>
 </div>
 <div class="container">
@@ -57,7 +56,7 @@
   <!-- review -->
   <div class="row">
     <div class="col-md-12">
-      <% if logged_in? %>
+      <% if user_signed_in? %>
         <%= render "reviews/review_form" %>
       <% else %>
         <h3><%= t(".comment") %></h3>
