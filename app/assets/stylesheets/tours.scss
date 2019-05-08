@@ -8,6 +8,7 @@ $color-review-title: #2d2c2c;
 $color-review-subtitle: #929191;
 $color-review-rating: #FFFFFF;
 $color-review-rating-bg: #fa9e1b;
+$color-aliceblue: #f3f6f9;
 
 .offers_grid
 {
@@ -18,6 +19,7 @@ $color-review-rating-bg: #fa9e1b;
 {
   width: 100%;
   margin-bottom: 46px;
+  background: $color-aliceblue;
 }
 .offers_item:last-child
 {
@@ -203,4 +205,8 @@ a, a:hover, a:visited, a:active, a:link {
 
 .card-inner{
     margin-left: 4rem;
+}
+
+.home-bg{
+  background-image: url("offer_2.jpg");
 }
