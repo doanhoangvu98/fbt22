@@ -1,46 +1,82 @@
 <% provide(:title, t(".title")) %>
 <h1 class="text-center"><%= t(".title") %></h1>
-<div class="col-md-12">
+<div class="container">
+  <div class="col-md-12">
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: t(".email") %>
-    </div>
+      <div>
+        <%= image_tag check_none_image(@user),
+          size: Settings.app.user.avatar_size, id: "avatar" %>
+        <span class="picture">
+          <%= f.file_field :picture, accept: Settings.app.user.image_accept %>
+        </span>
+      </div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div><%= t(".email_confirm", resource.unconfirmed_email) %></div>
+      <div class="field">
+        <%= f.label :firstname %><br />
+        <%= f.text_field :firstname, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :lastname %><br />
+        <%= f.text_field :lastname, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :address %><br />
+        <%= f.text_field :address, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :phone %><br />
+        <%= f.text_field :phone, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: t(".email"),
+          class: "form-control" %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div><%= t(".email_confirm", resource.unconfirmed_email) %></div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :password %> <i><%= t(".pwd") %></i><br />
+        <%= f.password_field :password, autocomplete: t(".newpwd"),
+          class: "form-control" %>
+        <% if @minimum_password_length %>
+          <br />
+          <em><%= @minimum_password_length %><%= t(".minpwd") %></em>
+        <% end %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: t(".newpwd"),
+          class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :current_password %> <i><%= t(".currpwd") %></i><br />
+        <%= f.password_field :current_password, autocomplete: t(".curpwd"),
+          class: "form-control" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit t(".update"), class: "btn btn-primary" %>
+      </div>
     <% end %>
 
-    <div class="field">
-      <%= f.label :password %> <i><%= t(".pwd") %></i><br />
-      <%= f.password_field :password, autocomplete: t(".newpwd") %>
-      <% if @minimum_password_length %>
-        <br />
-        <em><%= @minimum_password_length %><%= t(".minpwd") %></em>
-      <% end %>
-    </div>
+    <h3><%= t(".cancelacc") %></h3>
 
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: t(".newpwd") %>
-    </div>
+    <p><%= t(".unhappy") %><%= button_to t(".cancelacc"),
+      registration_path(resource_name), data: { confirm: t(".sure") }, method: :delete,
+      class: "btn btn-danger"  %></p>
 
-    <div class="field">
-      <%= f.label :current_password %> <i><%= t(".currpwd") %></i><br />
-      <%= f.password_field :current_password, autocomplete: t(".curpwd") %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit t(".update") %>
-    </div>
-  <% end %>
-
-  <h3><%= t(".cancelacc") %></h3>
-
-  <p>Unhappy? <%= button_to t(".cancelacc"), registration_path(resource_name), data: { confirm: t(".sure") }, method: :delete %></p>
-
-  <%= link_to t(".back"), :back %>
+    <%= link_to t(".back"), :back %>
+  </div>
 </div>

@@ -1,46 +1,50 @@
-<header>
-  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4
-    mb-3 bg-white order-bottom box-shadow">
-    <h5 class="my-0 mr-md-auto font-weight-bold"><%= t(".title") %></h5>
-    <nav class="my-2 my-md-0 mr-md-3">
-      <%= link_to t(".home"), root_path, class: "p-2 text-dark" %>
-      <%= link_to t(".tour"), tours_path, class: "p-2 text-dark" %>
-      <% if signed_in? %>
-        <div class="dropdown show d-inline">
-          <a class="btn btn-white dropdown-toggle" href="#" role="button"
-            id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false"><%= t(".user") %></a>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand -->
+  <%= link_to t(".title"), root_path, class: "navbar-brand" %>
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <%= link_to t(".home"), root_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to t(".tour"), tours_path, class: "nav-link" %>
+    </li>
+
+    <!-- Dropdown -->
+    <% if signed_in? %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            <%= t(".user") %>
+        </a>
+        <div class="dropdown-menu">
             <%= link_to t(".settings"), edit_user_registration_path, class: "dropdown-item" %>
-            <div class="dropdown-divider"></div>
             <%= link_to t(".bookings"), bookings_path, class: "dropdown-item" %>
-            <div class="dropdown-divider"></div>
             <%= link_to t(".log_out"), destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
         </div>
-        <% if current_user.admin? %>
-          <div class="dropdown show d-inline">
-            <a class="btn btn-white dropdown-toggle" href="#" role="button"
-              id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false"><%= t(".admin") %></a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <%= link_to t(".tours"), admin_tours_path, class: "dropdown-item" %>
-              <div class="dropdown-divider"></div>
-              <%= link_to t(".reviews"), admin_reviews_path, class: "dropdown-item" %>
-              <div class="dropdown-divider"></div>
-              <%= link_to t(".travellings"), admin_travellings_path, class: "dropdown-item" %>
-              <div class="dropdown-divider"></div>
-              <%= link_to t(".locations"), admin_locations_path, class: "dropdown-item" %>
-              <div class="dropdown-divider"></div>
-              <%= link_to t(".bookings"), admin_bookings_path, class: "dropdown-item" %>
-              <div class="dropdown-divider"></div>
-            </div>
+      </li>
+      <% if current_user.admin? %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+            <%= t(".admin") %>
+          </a>
+          <div class="dropdown-menu">
+            <%= link_to t(".tours"), admin_tours_path, class: "dropdown-item" %>
+            <%= link_to t(".reviews"), admin_reviews_path, class: "dropdown-item" %>
+            <%= link_to t(".travellings"), admin_travellings_path, class: "dropdown-item" %>
+            <%= link_to t(".locations"), admin_locations_path, class: "dropdown-item" %>
+            <%= link_to t(".bookings"), admin_bookings_path, class: "dropdown-item" %>
           </div>
-        <% end %>
-      <% else %>
-       <%= link_to "Sign up", new_user_registration_path, class: "btn btn-outline-primary" %>
-        <%= link_to t(".signin"), sign_in_path, class: "btn btn-outline-primary" %>
+        </li>
       <% end %>
-    </nav>
-  </div>
-</header>
+      </li>
+    <% else %>
+      <li class="nav-item">
+        <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to t(".signin"), sign_in_path, class: "nav-link" %>
+      </li>
+    <% end %>
+  </ul>
+</nav>

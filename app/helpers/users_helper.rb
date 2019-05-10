@@ -6,9 +6,9 @@ module UsersHelper
   # Confirms a logged-in user.
   def logged_in_user
     return if user_signed_in?
-    store_location
+    store_location_for(:user, request.fullpath)
     flash[:danger] = t "users.action.please_login"
-    redirect_to login_path
+    redirect_to sign_in_path
   end
 
   def load_comment_review review
@@ -17,9 +17,5 @@ module UsersHelper
 
   def load_reply_comment reply_id
     Comment.load_reply_comment reply_id
-  end
-
-  def check_liked review
-    review.likes.liked(current_user.id, review.id)
   end
 end

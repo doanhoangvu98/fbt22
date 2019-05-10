@@ -1,3 +1,18 @@
-<%= image_tag @tour.image.url(:thumb), class: "img-fluid" %>
-
-<%= render "form" if logged_in? %>
+<% provide(:title, t(".title")) %>
+<h1 class="text-center"><%= t(".title") %></h1>
+<div class="container">
+  <div class="card">
+    <div class="row">
+      <aside class="col-sm-7 border-right">
+        <article class="gallery-wrap">
+          <div class="img-big-wrap">
+            <div><%= image_tag @tour.image, class: "img-fluid" %></div>
+          </div>
+        </article>
+      </aside>
+      <aside class="col-sm-5">
+        <%= render "form" if user_signed_in? %>
+      </aside>
+    </div>
+  </div>
+</div>
