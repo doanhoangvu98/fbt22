@@ -243,6 +243,7 @@ en:
       description: "description about tour"
       book: "Book"
       review:
+        zero: "No reviews"
         one: "1 review"
         other: "%{count} reviews"
     show:
@@ -321,3 +322,7 @@ en:
         danger: "Can't unlike"
       load:
         danger: "Not found"
+    bookings:
+      waiting: "Change to waiting"
+      cancel: "Cancel successful"
+      expire: "Expire day"

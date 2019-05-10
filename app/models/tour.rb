@@ -23,6 +23,10 @@ class Tour < ApplicationRecord
     where "title LIKE ? OR price LIKE ?", "%#{search_term}%", "%#{search_term}%"
   end
 
+  def has_review?
+    reviews.present?
+  end
+
   def average_review
     reviews.sum("rating") / reviews.count
   end
