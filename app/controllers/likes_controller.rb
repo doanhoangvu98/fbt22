@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  authorize_resource
   before_action :load_review
   before_action :load_like, :already_liked?, only: :destroy
 

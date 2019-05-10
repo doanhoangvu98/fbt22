@@ -1,13 +1,4 @@
-User.create!(firstname: "Le Van",
-  lastname: "Huynh",
-  address: "59 Nguyen Luong Bang",
-  phone: "0977469596",
-  email: "huynhle@gmail.com",
-  role: 1,
-  password: "123456",
-  password_confirmation: "123456")
-
-User.create!(firstname: "Doan Hoang",
+user = User.create!(firstname: "Doan Hoang",
   lastname: "Vu",
   address: "Su pham",
   phone: "0328944440",
@@ -16,16 +7,18 @@ User.create!(firstname: "Doan Hoang",
   password: "123456",
   password_confirmation: "123456")
 
+user.skip_confirmation!
+user.save
 
 30.times do |n|
-  firstname = "Le-#{n+1}"
-  lastname = "Huynh-#{n+1}"
+  firstname = "a-#{n+1}"
+  lastname = "a-#{n+1}"
   address = "59 Nguyen Luong Bang"
   phone = "0977469596"
-  email = "huynhle-#{n+1}@gmail.com"
+  email = "a#{n+1}@gmail.com"
   picture = Faker::Avatar.image
   password = "123456"
-  User.create!(firstname: firstname,
+  user = User.create!(firstname: firstname,
     lastname: lastname,
     address: address,
     phone: phone,
@@ -33,6 +26,8 @@ User.create!(firstname: "Doan Hoang",
     picture: picture,
     password: password,
     password_confirmation: password)
+  user.skip_confirmation!
+  user.save
 end
 
 Category.create!(name: "Trong nuoc")
@@ -44,28 +39,9 @@ Location.create!(name: "Da Nang")
 Travelling.create!(location_start_id: 1, location_end_id: 2)
 
 30.times do |n|
-  quantity = Random.rand(1..5)
-  price = Random.rand(10..500)
-  phone = "0977469596"
-  name  = Faker::Name.name
-  status = Random.rand(4)
-  user_id = Random.rand(1..30)
-  tour_id = Random.rand(1..30)
-  Booking.create!(
-    quantity: quantity,
-    price: price,
-    phone: phone,
-    name: name,
-    status: status,
-    user_id: user_id,
-    tour_id: tour_id
-  )
-end
-
-30.times do |n|
   title  = Faker::Name.title
   description = Faker::Lorem.paragraphs(2..8)
-  price = "299"
+  price = Random.rand(150..1500)
   image = Faker::LoremPixel.image("255x267")
   num_people = Random.rand(10)
   tour_start = Date.today
@@ -85,26 +61,36 @@ end
     travelling_id: travelling_id)
 end
 
+30.times do |n|
+  quantity = Random.rand(1..5)
+  price = Random.rand(10..500)
+  phone = "0977469596"
+  name  = Faker::Name.name
+  status = Random.rand(4)
+  user_id = Random.rand(1..30)
+  tour_id = Random.rand(1..30)
+  Booking.create!(
+    quantity: quantity,
+    price: price,
+    phone: phone,
+    name: name,
+    status: status,
+    user_id: user_id,
+    tour_id: tour_id)
+end
+
 50.times do |n|
   type_review = Random.rand(0..2)
   rating = Random.rand(1..5)
   content = Faker::Lorem.sentence(10)
   user_id = Random.rand(1..31)
   tour_id = Random.rand(1..30)
-  Review.create!(rating: rating,
+  Review.create!(
+    type_review: type_review,
+    rating: rating,
     content: content,
     user_id: user_id,
     tour_id: tour_id)
-end
-
-5.times do |n|
-  content = Faker::Lorem.sentence(10)
-  user_id = Random.rand(1..30)
-  review_id = Random.rand(6..7)
-  Comment.create!(content: content,
-    reply_id: reply_id,
-    user_id: user_id,
-    review_id: review_id)
 end
 
 5.times do |n|
