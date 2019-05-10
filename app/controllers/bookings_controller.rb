@@ -1,7 +1,8 @@
 class BookingsController < ApplicationController
-  authorize_resource
+  before_action :authenticate_user!, only: %i(new create)
   before_action :load_tour, only: %i(new create)
   before_action :load_booking, only: :change_status
+  authorize_resource
 
   def new
     @booking = Booking.new

@@ -39,6 +39,8 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    addressable (2.6.0)
+      public_suffix (>= 2.0.2, < 4.0)
     ansi (1.5.0)
     arel (8.0.0)
     ast (2.4.0)
@@ -53,6 +55,14 @@ GEM
     builder (3.2.3)
     byebug (9.0.6)
     cancancan (3.0.1)
+    capybara (3.21.0)
+      addressable
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.8)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      regexp_parser (~> 1.5)
+      xpath (~> 3.2)
     carrierwave (1.2.2)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
@@ -78,6 +88,7 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    diff-lcs (1.3)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
     dry-configurable (0.8.2)
@@ -111,6 +122,11 @@ GEM
     erubi (1.8.0)
     excon (0.64.0)
     execjs (2.7.0)
+    factory_bot (5.0.2)
+      activesupport (>= 4.2.0)
+    factory_bot_rails (5.0.2)
+      factory_bot (~> 5.0.2)
+      railties (>= 4.2.0)
     faker (1.7.3)
       i18n (~> 0.5)
     ffi (1.10.0)
@@ -348,6 +364,7 @@ GEM
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
+    public_suffix (3.0.3)
     puma (3.9.1)
     rack (2.0.7)
     rack-test (1.1.0)
@@ -400,6 +417,7 @@ GEM
       json (>= 1.8)
       nokogiri (~> 1.5)
       optimist (~> 3.0)
+    regexp_parser (1.5.1)
     responders (2.4.1)
       actionpack (>= 4.2.0, < 6.0)
       railties (>= 4.2.0, < 6.0)
@@ -407,6 +425,23 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    rspec-core (3.8.0)
+      rspec-support (~> 3.8.0)
+    rspec-expectations (3.8.3)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.8.0)
+    rspec-mocks (3.8.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.8.0)
+    rspec-rails (3.8.2)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 3.8.0)
+      rspec-expectations (~> 3.8.0)
+      rspec-mocks (~> 3.8.0)
+      rspec-support (~> 3.8.0)
+    rspec-support (3.8.0)
     rubocop (0.54.0)
       parallel (~> 1.10)
       parser (>= 2.5)
@@ -437,6 +472,8 @@ GEM
       sprockets-rails
       tilt
     shellany (0.0.1)
+    shoulda-matchers (4.0.1)
+      activesupport (>= 4.2.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -479,6 +516,8 @@ GEM
       will_paginate (~> 3.0, >= 3.0.0)
     xml-simple (1.1.5)
     xmlrpc (0.3.0)
+    xpath (3.2.0)
+      nokogiri (~> 1.8)
 
 PLATFORMS
   ruby
@@ -488,10 +527,12 @@ DEPENDENCIES
   bootstrap
   byebug (= 9.0.6)
   cancancan
+  capybara
   carrierwave (= 1.2.2)
   coffee-rails (= 4.2.2)
   config
   devise
+  factory_bot_rails
   faker (= 1.7.3)
   figaro
   fog (= 1.42)
@@ -510,8 +551,10 @@ DEPENDENCIES
   rails-controller-testing (= 1.0.2)
   rails-i18n
   ransack
+  rspec-rails
   rubocop (~> 0.54.0)
   sass-rails (= 5.0.6)
+  shoulda-matchers
   spring (= 2.0.2)
   spring-watcher-listen (= 2.0.1)
   sqlite3 (= 1.3.13)

@@ -20,7 +20,7 @@
         <div class="dropdown-menu">
             <%= link_to t(".settings"), edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to t(".bookings"), bookings_path, class: "dropdown-item" %>
-            <%= link_to t(".log_out"), destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            <%= link_to t(".log_out"), sign_out_path, class: "dropdown-item" %>
         </div>
       </li>
       <% if current_user.admin? %>

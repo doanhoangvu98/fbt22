@@ -26,8 +26,8 @@
             <%= f.collection_select :category_id_eq, Category.all, :id, :name,
             {include_blank: t(".category")}, {class: "form-control"} %>
           </div>
-          <div class="col-lg-2 col-md-2 col-sm-12" >
-            <%= f.submit t(".search"), class: "btn btn-danger wrn-btn" %>
+          <div class="col-lg-2 col-md-2 col-sm-12 p-1" >
+            <%= f.submit t(".search"), class: "btn btn-primary" %>
           </div>
         </div>
       <% end %>

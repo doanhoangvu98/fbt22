@@ -5,6 +5,7 @@ class Tour < ApplicationRecord
   belongs_to :category
   belongs_to :travelling
   scope :order_by_create, ->{order created_at: :desc}
+  scope :open_tour, ->{where(status: "open")}
   scope :load_tours_by_filter, (lambda do |title|
     (where "title LIKE ?", "%#{title}%")
   end)

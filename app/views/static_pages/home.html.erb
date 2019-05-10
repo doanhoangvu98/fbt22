@@ -12,6 +12,8 @@
     <div class="row">
       <%= render partial: "static_pages/tour", collection: @tours %>
     </div>
-    <%= will_paginate @tours %>
+    <div class="d-flex justify-content-center">
+      <%= will_paginate @tours %>
+    </div>
   </div>
 </div>

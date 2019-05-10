@@ -4,7 +4,7 @@ class ToursController < ApplicationController
 
   def index
     @search = Tour.ransack params[:q]
-    @tours = @search.result.includes(:category).order_by_create.paginate page:
+    @tours = @search.result.open_tour.includes(:category).order_by_create.paginate page:
       params[:page], per_page: Settings.app.page
   end
 

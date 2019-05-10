@@ -3,6 +3,7 @@ class User < ApplicationRecord
     :validatable, :confirmable
   include UsersHelper
   enum role: {customer: 0, admin: 1}
+  validates :phone, presence: true
   scope :sort_by_created_at_desc, ->{order created_at: :desc}
   has_many :reviews, dependent: :destroy
   has_many :banks, dependent: :destroy
