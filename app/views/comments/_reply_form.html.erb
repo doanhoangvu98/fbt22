@@ -1,7 +1,7 @@
 <%= form_for current_user.comments.build, remote: true do |f| %>
   <div class="field">
     <%= f.text_area :content, placeholder: t(".reply"), required: true,
-      class: "mb-0 mt-2" %>
+      class: "mb-0 mt-2 form-control" %>
   </div>
   <%= hidden_field_tag :review_id, comment.review_id %>
   <%= f.hidden_field :reply_id, value: comment.id %>

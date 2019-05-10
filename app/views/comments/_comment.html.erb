@@ -14,12 +14,11 @@
         </a>
       </p>
       <div class="clearfix"></div>
-      <p><%= comment.content %></p>
+      <p class= "text-justify"><%= comment.content %></p>
       <ul>
         <%= render partial: "comments/reply", collection: load_reply_comment(comment.id) %>
         <%= render "comments/reply_form", comment: comment %>
       </ul>
     </div>
   </div>
-  <hr>
 </div>

@@ -1,53 +1,20 @@
-<div class="col-lg-6 offers_col">
-  <div class="offers_item">
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="offers_image_container">
-          <div class="offers_image_background"
-            style="background-image:url(<%= tour.image %>)">
-          </div>
-          <div class="offer_name"><a href="#">
-            <%= tour.title %></a>
-          </div>
+<div class="col-md-4">
+  <div class="card mb-4 box-shadow">
+    <img class="card-img-top" src="<%= tour.image %>" alt="Card image cap">
+    <div class="card-body">
+      <h5><strong><%= tour.title %></strong></h5>
+      <h5 class="price"><%= number_to_currency(tour.price) %></h5>
+      <p class="card-text text-justify"><%= truncate(tour.description, length: Settings.app.tour.length) %></p>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+          <%= link_to t(".readmore"), tour, class: "btn btn-sm btn-info" %>
         </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="offers_content">
-          <div class="offers_price"><%= number_to_currency(tour.price) %>
-            <br>
-            <span>
-              <%= t ".start" %><%= l tour.tour_start, format: :long %>
-            </span>
-            <br>
-            <span>
-              <%= t ".finish" %><%= l tour.tour_finish, format: :long %>
-            </span>
-          </div>
-          <div class="rating_r rating_r_4 offers_rating">
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
-          </div>
-          <p class="offers_text">
-            <%= truncate(tour.description,
-              :length => Settings.app.tour_sp.length) %>
-          </p>
-          <div class="offers_icons">
-            <!-- vihicle -->
-            <ul class="offers_icons_list">
-              <li class="offers_icons_item"><img src="" alt=""></li>
-              <li class="offers_icons_item"><img src="" alt=""></li>
-              <li class="offers_icons_item"><img src="" alt=""></li>
-              <li class="offers_icons_item"><img src="" alt=""></li>
-            </ul>
-          </div>
-          <div class="offers_link">
-            <%= link_to t(".readmore"), tour %>
-          </div>
-        </div>
+        <small class="text-muted" >
+          <div class="review-rating float-right" data-score="<%= tour.average_review %>"></div>
+        </small>
       </div>
     </div>
   </div>
 </div>
+
+<%= javascript_include_tag("review") %>

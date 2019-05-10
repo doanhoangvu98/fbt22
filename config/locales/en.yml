@@ -48,10 +48,15 @@ en:
       new:
         title: "Login"
         submit: "Login"
+        email: "email"
+        currpwd: "current-password"
     registrations:
       new:
         title: "Sign up"
         submit: "Sign up"
+        email: "email"
+        newpwd: "new-password"
+        minimum: "(%{count} characters minimum)"
       edit:
         title: "Edit user"
         email: "email"
@@ -63,7 +68,7 @@ en:
         email_confirm: "Currently waiting confirmation for: "
         pwd: "(leave blank if you don't want to change it)"
         cancelacc: "Cancel my account"
-        unhappy: "Unhappy?"
+        unhappy: "Unhappy? "
         button: "Cancel my account"
         sure: "Are you sure?"
         back: "Back"
@@ -94,6 +99,7 @@ en:
     tour:
       start: "Start: "
       finish: "Finish: "
+      readmore: "Read more"
     contact:
       title: "Contact"
       p1: "Contact us"
@@ -241,7 +247,10 @@ en:
       sure: "Are you sure?"
       edit: "Edit"
       comment: "Comments (%{count})"
-      countlike: "Like (%{count})"
+      countlike:
+        zero: ""
+        one: "Like (%{count})"
+        other: "Like (%{count})"
       like: "Like"
       unlike: "Unlike"
     form:
@@ -260,11 +269,8 @@ en:
       start: "Start: "
       finish: "Finish: "
       introduction: "Introduction bla bla"
-      name: "Tour Name"
-      price: "1.990.000"
-      days: "2 day"
-      description: "description about tour"
       book: "Book"
+      readmore: "Read more"
       review:
         zero: "No reviews"
         one: "1 review"
@@ -282,7 +288,8 @@ en:
       like: " Like"
       review: "Reviews (%{count})"
       comment: "You must login to comment"
-      booking: "Book"
+      booking: "Book now"
+      description: "Description"
     action:
       tour_not_found: Tour not found
   categories:
@@ -312,6 +319,8 @@ en:
     index:
       title: User Booking Tours
       tour_name: Tour Name
+    new:
+      title: "Booking tours"
     create:
       booking_success: Booking success
       booking_fail: Booking fail
@@ -349,3 +358,4 @@ en:
       waiting: "Change to waiting"
       cancel: "Cancel successful"
       expire: "Expire day"
+

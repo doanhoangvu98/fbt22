@@ -1,52 +1,28 @@
-<div class="offers_item rating_3">
-  <div class="row">
-    <div class="col-lg-1 temp_col"></div>
-    <div class="col-lg-3 col-1680-4">
-      <div class="offers_image_container">
-        <div class="offers_image_background"
-          style="background-image:url(<%= tour.image %>)">
-        </div>
-        <div class="offer_name"><a href=""><%= tour.title %></a></div>
+<div class="col-md-12">
+  <div class="card mb-12 box-shadow">
+    <div class="card-body">
+      <div class="col-md-7 element1">
+        <img class="card-img-top img-thumbnail" src="<%= tour.image %>" alt="Card image cap">
       </div>
-    </div>
-    <div class="col-lg-8">
-      <div class="offers_content">
-        <div class="offers_price"><%= number_to_currency(tour.price) %>
-          <br>
-          <span>
-            <%= t ".start" %><%= l tour.tour_start, format: :long %>
-          </span>
-          <br>
-          <span>
-            <%= t ".finish" %><%= l tour.tour_finish, format: :long %>
-          </span>
-        </div>
-        <p class="offers_text">
-          <%= truncate(tour.description,
-            :length => Settings.app.tour.length) %>
+      <div class="col-md-5 float-right element2">
+        <h5><strong><%= tour.title %></strong></h5>
+        <h5 class="price"><%= number_to_currency(tour.price) %></h5>
+        <h6><%= t ".start" %><%= l tour.tour_start, format: :long %></h6>
+        <h6><%= t ".finish" %><%= l tour.tour_finish, format: :long %></h6>
+        <p class="card-text text-justify">
+          <%= truncate(tour.description, length: Settings.app.tour.length) %>
         </p>
-        <div class="offers_icons">
-          <ul class="offers_icons_list">
-             <li class="offers_icons_item"><img src="" alt=""></li>
-            <li class="offers_icons_item"><img src="" alt=""></li>
-            <li class="offers_icons_item"><img src="" alt=""></li>
-            <li class="offers_icons_item"><img src="" alt=""></li>
-          </ul>
-        </div>
-        <div class="button readmore_button">
-          <%= link_to t(".readmore"), tour %>
-        </div>
-        <div class="offer_reviews">
-          <div class="offer_reviews_content">
-            <div class="offer_reviews_subtitle">
-              <h6><%= t(".review", count: tour.reviews.count) %></h6>
-            </div>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <%= link_to t("tours.tour.readmore"), tour, class: "btn btn-sm btn-info" %>
           </div>
-          <div class="offer_reviews_rating text-center">
-            <%= tour.average_review %>
-          </div>
+          <small class="text-muted" >
+            <div class="review-rating float-right" data-score="<%= tour.average_review %>"></div>
+          </small>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<%= javascript_include_tag("review") %>

@@ -18,7 +18,7 @@ app:
     avatar_size_review: "100x100"
   category:
     name_max_length: 100
-  page: 10
+  page: 9
   tour:
     length: 250
     text_area_size: "20x7"
