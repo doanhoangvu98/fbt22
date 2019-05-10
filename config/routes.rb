@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
-    devise_for :users, controllers: { sessions: "users/sessions", registrations: "users/registrations" }
+    root "static_pages#home"
+
+    devise_for :users, controllers: {
+      sessions: "users/sessions",
+      registrations: "users/registrations",
+      confirmations: "users/confirmations"
+    }
 
     devise_scope :user do
       get "sign_in", to: "users/sessions#new"
     end
-
-    root "static_pages#home"
 
     get "/tours", to: "tours#index"
     resources :users, expect: %i(index destroy)

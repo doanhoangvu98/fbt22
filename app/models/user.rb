@@ -1,8 +1,6 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
-    :validatable
+    :validatable, :confirmable
   include UsersHelper
   enum role: {customer: 0, admin: 1}
   scope :sort_by_created_at_desc, ->{order created_at: :desc}

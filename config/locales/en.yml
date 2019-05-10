@@ -72,6 +72,23 @@ en:
         button: "Cancel my account"
         sure: "Are you sure?"
         back: "Back"
+    confirmations:
+      new:
+        title: "Resend confirmation instructions"
+        email: "email"
+    passwords:
+      new:
+        title: "Forgot your password?"
+        email: "email"
+        submit: Send me reset password instructions
+      edit:
+        title: "Change your password"
+        new: "New password"
+        newpwd: "new-password"
+        confirm: "Confirm new password"
+        submit: "Change my password"
+        offauto: "off"
+        minimum: "(%{count} characters minimum)"
   shared:
     error_messages:
       form_contains: "The form contains"
@@ -99,6 +116,7 @@ en:
     tour:
       start: "Start: "
       finish: "Finish: "
+      readmore: "Read more"
     contact:
       title: "Contact"
       p1: "Contact us"
@@ -268,11 +286,8 @@ en:
       start: "Start: "
       finish: "Finish: "
       introduction: "Introduction bla bla"
-      name: "Tour Name"
-      price: "1.990.000"
-      days: "2 day"
-      description: "description about tour"
       book: "Book"
+      readmore: "Read more"
       review:
         zero: "No reviews"
         one: "1 review"

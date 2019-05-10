@@ -14,11 +14,11 @@
         </p>
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
-            <%= link_to t(".readmore"), tour, class: "btn btn-sm btn-info" %>
+            <%= link_to t("tours.tour.readmore"), tour, class: "btn btn-sm btn-info" %>
           </div>
-          <div class="offer_reviews_rating text-center">
-            <%= tour.average_review %>
-          </div>
+          <small class="text-muted" >
+            <div class="review-rating float-right" data-score="<%= tour.average_review %>"></div>
+          </small>
         </div>
       </div>
     </div>
