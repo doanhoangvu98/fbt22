@@ -44,6 +44,29 @@ en:
       log_out: Log out
       setting: Setting
       user: User
+    sessions:
+      new:
+        title: "Login"
+        submit: "Login"
+    registrations:
+      new:
+        title: "Sign up"
+        submit: "Sign up"
+      edit:
+        title: "Edit user"
+        email: "email"
+        newpwd: "new-password"
+        curpwd: "current-password"
+        currpwd: "(we need your current password to confirm your changes)"
+        minpwd: " characters minimum"
+        update: "Update"
+        email_confirm: "Currently waiting confirmation for: "
+        pwd: "(leave blank if you don't want to change it)"
+        cancelacc: "Cancel my account"
+        unhappy: "Unhappy?"
+        button: "Cancel my account"
+        sure: "Are you sure?"
+        back: "Back"
   shared:
     error_messages:
       form_contains: "The form contains"

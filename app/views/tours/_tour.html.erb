@@ -42,11 +42,9 @@
               <h6><%= t(".review", count: tour.reviews.count) %></h6>
             </div>
           </div>
-          <% if tour.has_review? %>
-            <div class="offer_reviews_rating text-center">
-              <%= tour.average_review %>
-            </div>
-          <% end %>
+          <div class="offer_reviews_rating text-center">
+            <%= tour.average_review %>
+          </div>
         </div>
       </div>
     </div>

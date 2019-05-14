@@ -19,7 +19,7 @@
       <p><%= review.content %></p>
       <p>
         <p><%= t(".countlike", count: review.likes.count) %></p>
-        <% if logged_in? %>
+        <% if user_signed_in? %>
           <% if check_liked review %>
             <%= link_to t(".unlike"), review_like_path(review, check_liked(review)),
               method: :delete, class: "float-left btn text-white btn-info ml-2" %>
