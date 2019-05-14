@@ -1,14 +1,22 @@
 <%= form_for @booking do |f| %>
-  <%= render "shared/error_messages", object: f.object %>
+<%= render "shared/error_messages", object: f.object %>
+<%= hidden_field_tag :tour_id, @tour.id %>
   <div class="form-group">
     <%= f.label :name, t(".name") %>
-    <%= f.text_field :name, class: "form-control" %>
+    <%= f.text_field :name, value: current_user.firstname, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email, t(".email") %>
+    <%= f.text_field :email, value: current_user.email, class: "form-control" %>
+  </div>
+  <div class="form-group">
     <%= f.label :phone, t(".phone") %>
-    <%= f.text_field :phone, class: "form-control" %>
+    <%= f.text_field :phone, value: current_user.phone, class: "form-control" %>
+  </div>
+  <div class="form-group">
     <%= f.label :quantity, t(".quantity") %>
     <%= f.number_field :quantity, value: Settings.app.booking.value,
       min: Settings.app.booking.min_number, class: "form-control" %>
   </div>
-  <%= hidden_field_tag :tour_id, @tour.id %>
   <%= f.submit t(".booking"), class: "btn btn-primary float-right" %>
 <% end %>

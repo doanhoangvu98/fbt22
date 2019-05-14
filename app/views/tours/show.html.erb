@@ -2,71 +2,67 @@
 <div class="home-bg position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
   <div class="col-md-5 p-lg-5 mx-auto my-5">
     <h1 class="display-4 font-weight-normal"><%= t(".brand") %></h1>
-    <p class="lead font-weight-normal"><%= t(".introduction") %></p>
+    <p class="lead font-weight-normal">
+        <%= t(".introduction") %>
+    </p>
   </div>
 </div>
 <div class="container">
-  <div class="row">
-    <div class="col-lg-1 temp_col"></div>
-    <div class="col-lg-11"></div>
-    <div class="col-lg-12">
-      <!-- Offers Grid -->
-      <div class="offers_grid">
-        <!-- Offers Item -->
-        <div class="offers_item rating_3">
-          <div class="row">
-            <div class="col-lg-1 temp_col"></div>
-            <div class="col-lg-3 col-1680-4">
-              <div class="offers_image_container">
-                <div class="offers_image_background"
-                  style="background-image:url(<%= @tour.image %>)">
-                </div>
-                <div class="offer_name"><a href=""><%= @tour.title %></a></div>
-              </div>
-            </div>
-            <div class="col-lg-8">
-              <div class="offers_content">
-                <div class="offers_price"><%= number_to_currency(@tour.price) %>
-                  <br><span><%= t ".start" %><%= l @tour.tour_start, format: :long %></span>
-                  <br><span><%= t ".finish" %><%= l @tour.tour_finish, format: :long %></span>
-                  <br><span><%= t ".people" %><%= @tour.num_people %></span>
-                </div>
-                <div class="review-rating float-right" data-score="<%= @tour.average_review %>"></div>
-                <p class="offers_text">
-                  <%= @tour.description %>
-                </p>
-                <div class="offers_icons">
-                  <ul class="offers_icons_list">
-                    <li class="offers_icons_item"><img src="" alt=""></li>
-                    <li class="offers_icons_item"><img src="" alt=""></li>
-                    <li class="offers_icons_item"><img src="" alt=""></li>
-                    <li class="offers_icons_item"><img src="" alt=""></li>
-                  </ul>
-                </div>
-                <%= render "bookings/form" %>
-              </div>
-            </div>
+  <div class="card">
+    <div class="row">
+      <aside class="col-sm-7 border-right">
+        <article class="gallery-wrap">
+          <div class="img-big-wrap">
+            <div><%= image_tag @tour.image, class: "img-fluid" %></div>
           </div>
-        </div>
-      </div>
+        </article>
+      </aside>
+      <aside class="col-sm-5">
+        <article class="card-body p-5">
+          <h3 class="title mb-3"><strong><%= @tour.title %></strong></h3>
+          <p class="price-detail-wrap">
+            <span class="price h3 text-warning">
+              <span class="currency"><%= number_to_currency(@tour.price) %></span>
+            </span>
+          </p>
+          <dl class="param param-feature">
+            <dd><strong><%= t ".start" %></strong>
+              <%= l @tour.tour_start, format: :long %>
+            </dd>
+          </dl>
+          <dl class="param param-feature">
+            <dd><strong><%= t ".finish" %></strong>
+              <%= l @tour.tour_finish, format: :long %>
+            </dd>
+          </dl>
+          <dl class="param param-feature">
+            <dd><strong><%= t ".people" %></strong><%= @tour.num_people %></dd>
+          </dl>
+          <dl class="item-property">
+            <dt><%= t(".description") %></dt>
+            <dd>
+              <p class="text-justify"><%= @tour.description %></p>
+            </dd>
+          </dl>
+          <%= link_to t(".booking"), new_booking_path(tour_id: @tour.id),
+            class: "btn btn-lg btn-primary text-uppercase" %>
+        </article>
+      </aside>
     </div>
   </div>
-  <br><br><br><br>
-  <h3><%= t(".review", count: @tour.reviews.count) %></h3>
-  <!-- review -->
+  <br>
   <div class="row">
-    <div class="col-md-12">
+    <h3><%= t(".review", count: @tour.reviews.count) %></h3>
+    <div class="col-sm-12">
       <% if user_signed_in? %>
         <%= render "reviews/review_form" %>
       <% else %>
         <h3><%= t(".comment") %></h3>
       <% end %>
     </div>
-    <div class="col-md-12">
-      <div class="card">
+    <div class="col-sm-12">
         <%= render @reviews %>
-      </div>
+        <%= will_paginate @reviews %>
     </div>
   </div>
-  <%= will_paginate @reviews %>
 </div>
