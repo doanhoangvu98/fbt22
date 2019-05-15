@@ -27,9 +27,23 @@ Rails.application.configure do
   end
 
   # Don"t care if the mailer can"t send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
+
+  config.action_mailer.default_url_options =
+  {host: Settings.app.development.host, port: Settings.app.development.port}
+
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:  Settings.app.development.mailer.address,
+    port: Settings.app.development.mailer.port,
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"],
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -53,6 +67,4 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.middleware.use I18n::JS::Middleware
-
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end
