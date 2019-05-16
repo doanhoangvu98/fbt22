@@ -1,6 +1,6 @@
 <tr>
   <td></td>
-  <td><%= user.lastname %></td>
+  <td><%= user.full_name %></td>
   <td><%= user.email %></td>
   <td><%= latest_booking(user).present? ? l(latest_booking(user),
     format: :long) : t(".never_booked") %></td>

@@ -3,7 +3,8 @@ class Admin::UsersController < ApplicationController
   before_action :load_user, except: :index
 
   def index
-    @users = User.sort_by_created_at_desc.paginate page: params[:page],
+    @search = User.ransack params[:q]
+    @users = @search.result.sort_by_created_at_desc.paginate page: params[:page],
       per_page: Settings.app.user.per_page
   end
 

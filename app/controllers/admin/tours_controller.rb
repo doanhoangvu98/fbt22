@@ -19,7 +19,8 @@ class Admin::ToursController < ApplicationController
   end
 
   def index
-    @tours = Tour.search(params[:term]).order_by_create.paginate page:
+    @search = Tour.ransack params[:q]
+    @tours = @search.result.order_by_create.paginate page:
       params[:page], per_page: Settings.app.user.per_page
   end
 

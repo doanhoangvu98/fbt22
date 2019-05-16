@@ -8,7 +8,6 @@ class Tour < ApplicationRecord
   scope :load_tours_by_filter, (lambda do |title|
     (where "title LIKE ?", "%#{title}%")
   end)
-  scope :search, ->(term){load_tours_by_filter term}
   delegate :location_start, :location_end, to: :travelling
 
   mount_uploader :image, PictureUploader

@@ -141,6 +141,9 @@ en:
         latest_created: Latest date booking
         total_tour_booked: Total tour booked
         total_money_paid: Total money paid
+        name: "Full name"
+        email: "Email"
+        search: "Search"
       user:
         never_booked: Never booked
         you_sure: You sure
@@ -150,16 +153,23 @@ en:
     categories:
       form:
         name: Name
-      new:
+      index:
         title: Add category
         button_create: Add category
       edit:
         title: Update category
         save_change: Save change category
       create:
-        add_category_success: Add category success
+        success: Add category success
+        danger: Can't not add category
       update:
-        category_updated: Category updated
+        success: Category updated
+        danger: Can't not update
+      destroy:
+        success: Category deleted
+        danger: Can't not delete
+      category:
+        sure: Are you sure delete?
     locations:
       create:
         add_location_success: Add location success
@@ -227,8 +237,20 @@ en:
         add_tour_success: Add tour success
       index:
         title: Tours
+        start: "Start day"
+        finish: "Finish day"
+        travel: "Travelling"
+        price: "Price"
+        status: "Status"
+        action: "Action"
         search_tours: Search name
         search: Search
+        tourname: "Enter tour name"
+        pricestart: "Price from:"
+        priceand: "To: "
+        people: "Amout of people"
+        category: "Choice category"
+        search: "Search"
       tour:
         you_sure: You sure
       destroy:
@@ -252,6 +274,7 @@ en:
       about: "About"
       contact: "Contact"
       signin: "Sign in"
+      signup: "Sign up"
       log_out: Log out
       setting: Setting
       user: User
@@ -282,6 +305,12 @@ en:
       title: "List Tours"
       signup: "Sign up"
       brand: "Sun Booking"
+      tourname: "Enter tour name"
+      pricestart: "Price from:"
+      priceand: "To:"
+      people: "Amout of people"
+      category: "Choice category"
+      search: "Search"
     tour:
       start: "Start: "
       finish: "Finish: "
