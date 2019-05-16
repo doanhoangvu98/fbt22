@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  authorize_resource
   before_action :load_review, only: %i(edit update destroy)
 
   def new

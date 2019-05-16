@@ -24,18 +24,21 @@
         </div>
       </li>
       <% if current_user.admin? %>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-            <%= t(".admin") %>
-          </a>
-          <div class="dropdown-menu">
-            <%= link_to t(".tours"), admin_tours_path, class: "dropdown-item" %>
-            <%= link_to t(".reviews"), admin_reviews_path, class: "dropdown-item" %>
-            <%= link_to t(".travellings"), admin_travellings_path, class: "dropdown-item" %>
-            <%= link_to t(".locations"), admin_locations_path, class: "dropdown-item" %>
-            <%= link_to t(".bookings"), admin_bookings_path, class: "dropdown-item" %>
-          </div>
-        </li>
+        <% if can? :manage, :all %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+              <%= t(".admin") %>
+            </a>
+            <div class="dropdown-menu">
+              <%= link_to t(".users"), admin_users_path, class: "dropdown-item" %>
+              <%= link_to t(".tours"), admin_tours_path, class: "dropdown-item" %>
+              <%= link_to t(".reviews"), admin_reviews_path, class: "dropdown-item" %>
+              <%= link_to t(".travellings"), admin_travellings_path, class: "dropdown-item" %>
+              <%= link_to t(".locations"), admin_locations_path, class: "dropdown-item" %>
+              <%= link_to t(".bookings"), admin_bookings_path, class: "dropdown-item" %>
+            </div>
+          </li>
+        <% end %>
       <% end %>
       </li>
     <% else %>

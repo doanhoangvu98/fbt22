@@ -3,7 +3,7 @@
 <%= hidden_field_tag :tour_id, @tour.id %>
   <div class="form-group">
     <%= f.label :name, t(".name") %>
-    <%= f.text_field :name, value: current_user.firstname, class: "form-control" %>
+    <%= f.text_field :name, value: current_user.full_name, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= f.label :email, t(".email") %>

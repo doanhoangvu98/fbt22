@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  authorize_resource
   before_action :load_review, only: :create
 
   def create

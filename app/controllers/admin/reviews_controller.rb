@@ -1,6 +1,7 @@
 class Admin::ReviewsController < ApplicationController
   before_action :admin_user
   before_action :load_review, except: :index
+
   def index
     @reviews = Review.order_by_create.paginate page: params[:page],
       per_page: Settings.app.user.per_page

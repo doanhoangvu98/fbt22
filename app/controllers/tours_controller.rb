@@ -1,4 +1,5 @@
 class ToursController < ApplicationController
+  authorize_resource
   before_action :load_tour, :load_review, only: :show
 
   def index
@@ -7,9 +8,7 @@ class ToursController < ApplicationController
       params[:page], per_page: Settings.app.page
   end
 
-  def show
-    @booking = Booking.new
-  end
+  def show; end
 
   private
 
