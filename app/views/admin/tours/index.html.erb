@@ -1,22 +1,49 @@
 <div class="admin_layout">
   <% provide(:title, t(".title")) %>
   <h1 class="text-center"><%= t(".title") %></h1>
-  <%= form_tag admin_tours_path, method: :get, class: "input-group mb-3" do %>
-    <%= text_field_tag :term, params[:term], placeholder: t(".title"), class: "form-control" %>
-    <div class="input-group-append">
-      <%= button_tag t(".search"), name: nil, class: "btn btn-outline-secondary" %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <%= search_form_for @search do |f| %>
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-12 p-1">
+            <%= f.text_field :title_cont, class: "form-control",
+              placeholder: t(".tourname") %>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-12 p-1">
+            <%= f.number_field :price_gteq, class: "form-control",
+              placeholder: t(".pricestart") %>
+          </div>
+          <div class="col-lg-1 col-md-1 col-sm-12 p-1">
+            <%= f.number_field :price_lteq, class: "form-control",
+              placeholder: t(".priceand") %>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-12 p-1">
+          <%= f.number_field :num_people_eq, class: "form-control",
+            placeholder: t(".people") %>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-12 p-1">
+            <%= f.collection_select :category_id_eq, Category.all, :id, :name,
+            {include_blank: t(".category")}, {class: "form-control"} %>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-12" >
+            <%= f.submit t(".search"), class: "btn btn-danger wrn-btn" %>
+          </div>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
+</div>
   <%= link_to t(".new_tour"), new_admin_tour_path, class: "btn-custom btn btn-primary" %>
   <table class="table table-striped">
     <thead>
       <tr>
         <th><%= t ".sno" %></th>
-        <th><%= t ".title" %></th>
-        <th><%= t ".tour_start" %></th>
-        <th><%= t ".tour_finish" %></th>
+        <th><%= sort_link(@search, :title, t(".title")) %></th>
+        <th><%= sort_link(@search, :tour_start, t(".start")) %></th>
+        <th><%= sort_link(@search, :tour_finish, t(".finish")) %></th>
         <th><%= t ".travelling" %></th>
-        <th><%= t ".price" %></th>
+        <th><%= sort_link(@search, :price, t(".price")) %></th>
         <th><%= t ".status" %></th>
         <th><%= t ".action" %></th>
       </tr>

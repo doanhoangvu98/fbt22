@@ -1,6 +1,27 @@
 <div class="admin_layout">
   <% provide(:title, t(".title")) %>
   <h1><%= t(".title") %></h1>
+  <div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <%= search_form_for [:admin, @search] do |f| %>
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-12 p-1">
+            <%= f.text_field :firstname_or_lastname_cont, class: "form-control",
+              placeholder: t(".name") %>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12 p-1">
+            <%= f.text_field :email_cont, class: "form-control",
+              placeholder: t(".email") %>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-12" >
+            <%= f.submit t(".search"), class: "btn btn-danger wrn-btn" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
   <table class="table table-striped">
     <thead>
       <tr>
